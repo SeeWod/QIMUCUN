@@ -74,14 +74,18 @@ jobs:
           APP_DEPLOY_PATH: ${{ vars.APP_DEPLOY_PATH }}
           INFRA_DEPLOY_PATH: ${{ vars.INFRA_DEPLOY_PATH }}
           APP_NAME: ${{ vars.APP_NAME }}
+          ACR_REGISTRY: ${{ vars.ACR_REGISTRY }}
+          ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
+          ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
         with:
-          envs: APP_DEPLOY_PATH,INFRA_DEPLOY_PATH,APP_NAME
+          envs: APP_DEPLOY_PATH,INFRA_DEPLOY_PATH,APP_NAME,ACR_REGISTRY,ACR_USERNAME,ACR_PASSWORD
           host: ${{ secrets.SSH_HOST }}
           port: ${{ vars.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
             set -e
+            echo "$ACR_PASSWORD" | docker login "$ACR_REGISTRY" --username "$ACR_USERNAME" --password-stdin
             mkdir -p "${APP_DEPLOY_PATH}"
             mkdir -p "${APP_DEPLOY_PATH}/data"
             mkdir -p "${INFRA_DEPLOY_PATH}/nginx/conf.d"
