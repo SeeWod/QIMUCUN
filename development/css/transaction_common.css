@@ -1,0 +1,980 @@
+*{
+	transition: 0.5s;
+}
+body{
+	background: #27c6a6;
+}
+#main_part{
+	background: #ffff;
+/*	width: 100%;
+	height: 100%;*/
+}
+/*login_part*/
+
+#loginPart{
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgb(0,0,0,0.6);
+}
+#LP_wrap{
+	width: 90rem;
+	height: 60rem;
+	position: relative;
+	background: #ffff;
+}
+#LP_wrap input[type="text"]::placeholder{
+	opacity: 0.5;
+}
+#LP_wrap input[type="password"]::placeholder{
+	opacity: 0.5;
+}
+#LP_wrap input[type="text"]:focus{
+	outline: none;
+}
+#LP_wrap input[type="password"]:focus{
+	outline: none;
+}
+#LP_wrap > *{
+	position: absolute;
+	top: 1rem;
+	left: 5rem;
+	width: 80rem;
+	height: 58rem;
+/*	background: #894523;*/
+	background: #f8fbf9;
+}
+#LP_main{
+/*	display: none;*/
+	font-size: 1.5rem;
+	background-image: url("../img/login/welcome1.jpg");
+	background-size: 50rem;
+	background-position: center 4rem;
+	background-repeat: no-repeat;
+}
+#LP_main Button,#LP_introduce Button{
+	width: 98%;
+	margin: 1rem auto;
+	text-align: right;
+	background: transparent;
+	border: 0px;
+}
+#LP_main Button:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_main ul{
+	margin: 40rem auto 0px;
+	height: 4rem;
+	width: 30rem;
+	background-image: url("../img/line.png");
+	background-size: contain;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+/*	background: #487365;*/
+	display: flex;
+}
+#LP_main li{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	width: 33%;
+}
+#LP_main ul li:nth-child(2){
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_main ul li:hover,f#LP_main Button:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_main ul li:nth-child(2):hover{
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+
+#LP_login{
+	display: none;
+}
+#LP_login form{
+	margin: 12rem auto 0rem;
+	/*display: none;*/
+	width: 20rem;
+/*	background: #452935;*/
+}
+#LP_login > p{
+  position:absolute;
+	bottom: 2rem;
+  left: 2.5%;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 95%;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_login > p span:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_login form *{
+	font-size: 1.5rem;
+}
+#LP_login form #LPL_Cpassword{
+	margin: 0px 0px 2rem 0px;
+	width: 100%;
+	font-size: 1rem;
+	text-align: right;
+	opacity: 0.5;
+}
+#LP_login form #LPL_Cpassword:hover{
+	opacity: 1;
+}
+#LP_login form #LPL_return{
+	color: red;
+	width: 100%;
+	font-size: 1rem;
+/*	text-align: right;*/
+}
+#LP_login input{
+	text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_login input[type="button"]{
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_login input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+
+
+#LP_register{
+	display: none;
+}
+#LP_register form{
+	margin: 7rem auto 0px;
+	/*display: none;*/
+	width: 42rem;
+/*	background: #452935;*/
+}
+#LP_register form div{
+	display: flex;
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+/*	width: 20rem;*/
+}
+#LP_register form p{
+	width: 20rem;
+	text-align: right;
+	font-size: 1rem;
+	opacity: 0.25;
+/*	width: 20rem;*/
+}
+#LP_register form select{
+  text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 20rem;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_register > p{
+	margin: 2rem auto;
+	bottom: 0px;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 20rem;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_register form *{
+	font-size: 1.5rem;
+}
+#LP_register #LPL_remarks{
+	font-weight: normal;
+	opacity: 0.4;
+	width: 20rem;
+	font-size: 1rem;
+/*	text-align: right;*/
+}
+#LP_register input{
+	text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 20rem;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_register input[type="button"]{
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_register input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+#LP_register_back{
+	width: 4rem;
+	background: transparent;
+	opacity: 0.5;
+	margin: 1rem;
+	font-size: 2.5rem;
+}
+#LP_register_back:hover{
+	background: #d9d9d9;
+}
+
+
+#LP_changePassword{
+	display: none;
+}
+#LP_changePassword form{
+	margin: 8rem auto 14rem;
+	/*display: none;*/
+	width: 20rem;
+/*	background: #452935;*/
+}
+#LP_changePassword > p{
+	margin: 2rem auto;
+	bottom: 0px;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 95%;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_changePassword > p span:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_changePassword form *{
+	font-size: 1.5rem;
+}
+#LP_changePassword input{
+	text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_changePassword input[type="button"]{
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_changePassword input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+
+#LP_introduce{
+	display: none;
+
+}
+#LP_introduce p{
+	margin: 10rem auto 0px;
+	width: 80%;
+	font-size: 1.3rem;
+/*	display: none;*/
+	
+}
+
+
+/*上部分*/
+#up{
+	padding: 0px 2.5%;
+	height: 10%;
+
+	display: flex;
+	align-items: center;
+
+	position: relative;
+
+/*	background: #796843;*/
+}
+#up #switch{
+	height: 3.3rem;
+	width: 8rem;
+	border-radius: 0px;
+	border: 0.5rem solid #cccccc;
+	display: flex;
+	perspective: 250px;
+	perspective-origin: center 200%;
+	background: #999999;
+}
+#up #switch button{
+	color: #ffff;
+	font-weight: blod;
+	background: #999999;
+	width: 50%;
+	height: 100%;
+	border: none;
+	border-radius: 0px;
+
+	box-shadow: 1px 1px 0px #555555;
+}
+#up #switch button:nth-child(1){
+	transform-origin: right;
+	transform-style: preserve-3d;
+	background: #0966d8;
+/*		box-shadow: 0px 0px 0px #000000;*/
+}
+#up #switch button:nth-child(2){
+	background: #888888;
+	transform: rotateY(-30deg);
+	transform-origin: left;
+	transform-style: preserve-3d;
+/*		box-shadow: 3px 1px 1px #000000;*/
+}
+
+#up form{
+	margin: 0px 0px 0px 4rem;
+	background: #dbdada;
+	display: flex;
+	align-items: center;
+	height: 3.5rem;
+	border-radius: 100px;
+}
+#up #search:hover #searchB{
+	animation: change 0.5s 1;
+}
+@keyframes change{
+	0% {transform: rotate(0deg)}
+	100% {transform: rotate(360deg)}
+}
+#up input[type="button"]{
+	transition: 0.1s;
+	height: 2.5rem;
+	width: 2.5rem;
+	margin: 0.5rem;
+	background-color: #ffff;
+	background-size: 1.5rem 1.5rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 50px;
+/*	background-color: #786521;*/
+}
+#up input[type="text"]:focus{
+	outline: none;
+/*	background: #976438;*/
+}
+#up input[type="text"]{
+	text-indent: 2rem;
+	color: #ffff;
+	font-size: 1.5rem;
+	background: transparent;
+	border: none;
+	width: calc(100% - 3rem);
+	height: 100%;
+	border-radius: 50px;
+}
+#search{
+	width: 34rem;
+}
+
+#search input[type="button"]{
+	background-image: url("../img/transaction/search.png");
+}
+#sort{
+	width: 12.5rem;
+}
+#sort input[type="button"]{
+	background-image: url("../img/transaction/sort.png");
+}
+#sort input[type="text"]{
+	text-indent: 3rem;
+}
+#sort{
+	transition: visibility 0.25s;
+	position: relative;
+	display: block;
+}
+#sort:hover *{
+	border-radius: 0px;
+}
+#sort #sortList{
+	visibility: hidden;
+	transition: height 0.25s 0.5s;
+	z-index: 1;
+	position: absolute;
+	top: 3rem;
+	left: 4rem;
+	height: 0px;
+	width: 12.5rem;
+	background: #dbdada;
+}
+#sortList li{
+	transition: opacity 0s 0.75s;
+	opacity: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffff;
+	font-size: 1.5rem;
+	height: 3rem;
+}
+#sortList li:hover{
+	background: #26c1a2;
+}
+#sort #sortForm{
+	z-index: 2;
+	height: 100%;
+	display: flex;
+	width: 100%;
+}
+
+
+#up #buttons{
+	position: absolute;
+	height: 4rem;
+	right: 2rem;
+	display: flex;
+	align-items: center;
+
+}
+#up #buttons li{
+	transform: rotate(0deg);
+	width: 4rem;
+	height: 4rem;
+	margin: 0px 1rem;
+	background-position: center;
+	background-size: 2.5rem 2.5rem;
+	background-repeat: no-repeat;
+}
+#up #buttons #openAddViewB{
+	background-image: url("../img/transaction/add.png");
+}
+#up #buttons #goSelfB{
+	background-image: url("../img/transaction/record.png");
+}
+#up #buttons #forHelpB{
+	background-image: url("../img/transaction/help.png");
+}
+#up #buttons li:hover{
+	background-color: #eff2f8;
+}
+
+/*______________________down____________________________*/
+
+#down{
+	height: 90%;
+	display: flex;
+	position: relative;
+
+/*	background: #006843;*/
+}
+
+#down #tag{
+	width: 12.5rem;
+  min-width: 130px;
+	height: 100%;
+	position: relative;
+/*	background: #644321;*/
+}
+#tag > ul{
+	padding: 0px 0px 100px;
+	border-radius: 2px;
+	font-size: 1.25rem;
+	font-weight: bold;
+	list-style-type: none;
+	width: 100%;
+	border-right: 2px solid #eeeeee;
+/*	height: 80%;*/
+/*	background: #004321;*/
+}
+#tag li{
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+	height: 1.5rem;
+	margin: 1rem 0px 0px 5%;
+	filter: saturate(0%);
+	opacity: 0.3;
+
+	transition: margin 0.25s 0.25;
+	transition: opacity 0.5s;
+	transition: filter 0.5s;
+
+/*	background: #687921;*/
+}
+#tag li img{
+  width:1.5rem;
+	margin: 0px 1.5rem 0px 0px;
+}
+
+#tag li:hover{
+	margin: 1rem 0px 0px 2%;
+}
+
+
+.onTag,.offTag{
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin: 0px 1rem 0px 0px;
+	width: 1.5rem;
+	height: 1.5rem;
+	transition: 0s;
+	background-color: transparent;
+
+}
+.onTag{
+	visibility: hidden;
+	background-image: url("../img/transaction/decrease.png");
+}
+.offTag{
+	background-image: url("../img/transaction/increase.png");
+}
+.fixTag{
+	visibility: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin: 0px 1rem 0px 0px;
+	width: 1.5rem;
+	height: 1.5rem;
+	background-color: transparent;
+}
+
+
+
+
+#tagViewB{
+	opacity: 0.2;
+	display: flex;
+
+	font-size: 1.5rem;
+	text-align: left;
+	align-items: center;
+	position: absolute;
+	left: 0.5rem;
+	bottom: 1rem;
+	width: 70%;
+	height: 1.5rem;
+	background-image: url("../img/transaction/increase.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
+	background-color: transparent;
+}
+#tagViewB:hover{
+	opacity: 0.8;
+}
+#tagView{
+	visibility: hidden;
+	z-index: 2;
+	position: absolute;
+	width: 0px;
+	height: 90%;
+	top: 0px;
+	left: 2rem;
+	transition: width 1s;
+	background: #ffff;
+}
+#tagView *{
+	transition: 0s;
+}
+#tagView ul{
+	margin: 0px 50px;
+	padding: 0px 0px 100px;
+	border-radius: 2px;
+	font-size: 15px;
+	font-weight: bold;
+	list-style-type: none;
+	width: 150px;
+	border: 0px;
+/*	background: #994321;*/
+}
+#tagView li{
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+	height: 20px;
+	margin: 1rem 0px 0px 5%;
+	filter: saturate(0%);
+	opacity: 0.3;
+
+	transition: margin 0.25s 0.25;
+	transition: opacity 0.5s;
+	transition: filter 0.5s;
+}
+
+#tagView li img{
+	margin: 0px 20px 0px 0px;
+}
+
+#tagView li:hover{
+	margin: 1rem 0px 0px 2%;
+}
+
+
+#decorate{
+	position: absolute;
+	top: 0px;
+	left: calc(100% - 2px);
+	width: 6px;
+	height: 35px;
+	background: #feb22e;
+	border-radius: 2px;
+}
+
+
+
+#goods{
+	position: relative;
+	height: 100%;
+	width: calc(100% - 150px);
+/*	background: #333333;*/
+}
+#goods #foot{
+	margin: 0px auto;
+	height: 10%;
+	width: calc(100% - 4rem);
+/*	background: #999999;*/
+
+	display:flex;
+	align-items: center;
+}
+
+#goods #foot div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+/*	height: 50px;
+	background: #856135;*/
+}
+#goods #foot div button{
+	width: 25px;
+	height: 25px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+}
+#goods #foot div button:hover{
+	background-color: #eff2f8;
+}
+
+#goods #foot div #pageF{
+	background-image: url("../img/transaction/pageF.png");
+}
+#goods #foot div p{
+	margin: 0px 2.5rem;
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	color: #6986c0;
+	border: 3px solid #6986c0;
+	border-radius: 100px;
+}
+#goods #foot div #pageN{
+	background-image: url("../img/transaction/pageB.png");
+}
+
+
+
+
+/* goodView */
+
+
+#goodsList *{
+	border-radius: 0px;
+}
+#goodsList li{
+	width: 8rem;
+	background: transparent;
+	border:1px solid rgb(0,0,0,0);
+}
+#goodsList li:hover{
+	border:1px solid #27c6a6;
+}
+#goodsList li div{
+	padding: 0.5rem;
+	margin: 0.25rem;
+	background: #f2f4f1;
+}
+#goodsList li div img{
+	width:6.5rem;
+}
+#goodsList li div p{
+	margin:0.5rem 0px;
+	font-family: "微软雅黑";
+}
+#goodsList li div .good_name{
+/*	font-weight: lighter;*/
+	color: #585857;
+	font-size: 1rem;
+	font-weight: bold;
+}
+#goodsList li div span{
+	color: #fdbf5d;
+}
+#goodsList li div .good_short{
+	color: #3e3c3a;
+	opacity: 0.75;
+	font-size: 0.5rem;
+}
+
+#G_long::placeholder,#G_name::placeholder,#G_price::placeholder{
+  opacity:0.25;
+
+}
+
+
+
+#closeTagB{
+	transition: all 0s;
+	margin: 20px;
+	width: 50px;
+	height: 50px;
+	border-radius: 30px;
+	border: none;
+	float: right;
+
+/*	position: absolute;
+	right: 20px;
+	top: 20px;*/
+
+	background: url("../img/close.png");
+}
+
+/*addView*/
+#addView{
+	visibility: hidden;
+	z-index: 2;
+	position: absolute;
+	width: calc(100% - 4rem);
+	height: 90%;
+	top: 0px;
+	left: 2rem;
+	transition: opacity 0.5s;
+
+	background: #ffff;
+}
+#upWrap{
+	display: flex;
+	height: 5%;
+
+}
+#addSell,#addBuy{
+	font-size: 1.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffff;
+	margin: 0px 5px;
+	width: 100px;
+	height: 100%;
+	border-radius: 1rem 1rem 0px 0px;
+	background: #c8c8c8;
+}
+#addSell{
+	background: #3898b4;
+}
+
+#addSell input,#addBuy input{
+	display: none;
+}
+#addSell:hover,#addBuy:hover{
+	filter: brightness(1.1);
+}
+#wrap{
+	padding: 2rem;
+	width: calc(100% - 4rem);
+	height: calc(95% - 4rem);
+	background: #f2f4f1;
+}
+
+#addViewUp{
+/*	background: #886521; */
+	display: flex;
+	width: 100%;
+	height: 32%;
+}
+#mainImgB:hover,#imgs li:hover{
+	filter: brightness(1.1);
+
+}
+#addViewUp #mainImgB{
+  /* 本来准备200像素高度 为了自适应 15rem*/
+	margin: 1rem;
+	width: 15rem;
+	height: 15rem;
+	background-image: url("../img/transaction/imgDefault2.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #f5f4f4;
+}
+#addViewUp #imgs{
+  padding:0.5rem;
+	display: flex;
+	flex-wrap: wrap;
+  align-content: flex-start;
+	width: 17rem;
+	height: calc(100% - 1rem);
+/* 	background: #010191; */ 
+}
+#addViewUp #imgs li{
+	margin: 0.5rem;
+	width: 7rem;
+	height: 7rem;
+
+	background-image: url("../img/transaction/imgDefault2.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #f5f4f4;
+}
+
+#addViewUp #rightPart{
+	width: calc(100% - 34rem);
+	height: 100%;
+
+	position: relative;
+/*	background: #700935;*/
+}
+#addViewUp #rightPart #words{
+	display: flex;
+	flex-wrap: wrap;
+}
+#addViewUp #rightPart #words li{
+	display: flex;
+
+	margin: 5px 0px 5px 5%;
+	font-size: 2rem;
+	width: 45%;
+/*	background: #793586;*/
+	color: #a5a5a5;
+	list-style-type: none;
+}
+#addViewUp #rightPart #words li input{
+	text-indent: 0.5rem;
+	border-radius: 0px;
+	border: 1px solid #c8c8c8;
+	outline: none;
+	width: 65%;
+}
+
+#rightPartDown{
+	wdith: 100%;
+	display: flex;
+}
+#rightPartDown h5{
+	margin: 0px 0px 0px 5%;
+	font-size: 1.5rem;
+	width: 5rem;
+/*	background: #c8c8c8;*/
+	color: #a5a5a5;
+}
+#addViewTags{
+	width: calc(100% - 5rem);
+	display :flex;
+	flex-wrap: wrap;
+/*	background: #357159;*/
+}
+#addViewTags li{
+	display: flex;
+	align-items: top;
+	font-weight: bold;
+	font-size: 1.4rem;
+	color: #feb22e;
+	width: 10rem;
+	height: 2.5rem;
+	filter: saturate(0%);
+/*	background: #3571ff;*/
+}
+#addViewTags li:hover{
+	filter: saturate(50%);
+/*	background: #3571ff;*/
+}
+#addViewTags li label{
+	margin: 0.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background-image: url("../img/checkbox.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+/*	background: #834976;*/
+}
+#addViewTags li input{
+	display: none;
+}
+
+
+
+#addViewDown{
+	margin: 2rem 0px;
+	width: calc(100% - 1rem);
+	height: 50%;
+	border: 0.5rem solid #e1e1e1;
+	border-radius: 1rem;
+}
+#addViewDown h5{
+	text-indent: 0.5rem;
+	margin: 0.5rem 0px;
+	font-size: 1.5rem;
+	color: #bebebe;
+/*	background: #287615;*/
+}
+#addViewDown textarea{
+	padding: 1rem;
+	color: #6a6868;
+	font-family: 微软雅黑,华文细黑;
+	font-size: 1.4rem;
+	width: calc(100% - 2rem);
+	height: calc(80% - 2rem);
+	border: none;
+/*	border-top: 2px solid #871923; */
+	outline: none;
+	resize: none;
+	background: transparent;
+}
+
+
+#addGoodSubmit{
+	display: block;
+	margin: 0px auto;
+	font-size: 2rem;
+	width: 15rem;
+	height: 4rem;
+	background: #feb22e;
+	color: #ffff;
+	font-weight: bold;
+	box-shadow: none;
+}
+#addGoodSubmit:hover{
+	outline: 1px solid #ffff;
+	box-shadow: 1px 1px 10px #feb22e;
+}
+.hidFile{
+	display: none;
+}
+
+
+
+
+#helpView{
+	visibility: hidden;
+	opacity: 00;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	background-image: url(../img/transaction/help.jpg);
+  background-size: contain;
+}

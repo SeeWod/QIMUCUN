@@ -1,0 +1,326 @@
+#goodView{
+	margin: 0px auto;
+	height: 90%;
+	width: calc(100% - 4rem);
+	display: flex;
+
+/*	background: #193746;*/
+}
+#goodsList{
+/*	list-style-type: none;*/
+	margin: 0px auto;
+	height: 100%;
+	width: 55%;
+
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+
+	overflow-y: hidden;
+	overflow-x: hidden;
+/*	background: #197684;*/
+}
+#goodsboard{
+	margin: 0px 0% 0px 5%;
+	padding: 4rem 0px 0px 0px;
+	height: calc(100% - 8rem);
+	width: 40%;
+  min-width: 44rem;
+	display:block;
+	position: relative;
+	background: #f6f6f6;
+	border-radius: 1rem;
+}
+#detailView{
+	display: flex;
+	top: 4rem;
+	left: 0px;
+	width: calc(100% - 3rem);
+	height: calc(100% - 6rem);
+	padding: 1.5rem;
+
+	position: absolute;
+
+	box-shadow: 0px 0px 1.5rem rgb(0,0,0,0);
+	background: #f2f4f1;
+}
+#detailView *{
+	border-radius: 0px;
+}
+#detailView #detail_left{
+	text-align: center;
+	padding: 1.5rem;
+	width: 60%;
+	height: 21.5rem;
+	background: #ffff;
+  overflow:hidden;
+  position:relative;
+/*	border: 15px solid #ffff;*/
+}
+#detailView #detail_left img{
+  pointer-events:none;
+
+
+  position:relative;
+	height: 20rem;
+	height: 20rem;
+/*	border: 15px solid #ffff;*/
+}
+#detailView #detail_right{
+	padding: 1.5rem;
+	margin: 0px 0px 0px 1.5rem;
+	width: 40%;
+	height: 21.5rem;
+	background: #ffff;
+	position: relative;
+/*	border: 15px solid #ffff;*/
+}
+#detailView #detail_right #detail_id{
+	display: none;
+}
+#detailView #detail_right #detail_name{
+	width: 100%;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+#detailView #detail_right #detail_price{
+	color: #ff9f28;
+}
+#detailView #detail_right #detail_texts{
+	display: flex;
+	flex-wrap: wrap;
+
+	width: 100%;
+	height: 5rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+/*	background: #195613;*/
+}
+#detailView #detail_right #detail_texts li{
+	margin: 0.5rem 1.5rem 0.5rem 0px;
+	font-size: 1rem;
+	font-weight: bold;
+/*	background: #195613;*/
+}
+#detailView #detail_right #detail_texts li span{
+	margin: 0.5rem 0px 0.5rem 0.5rem;
+	font-weight: normal;
+	opacity: 0.75;
+}
+#detailView #detail_right #detail_imgs{
+	display: flex;
+	overflow-x: scroll;
+	position:absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+/*	height: 100px;*/
+	background: #f2f4f1;
+}
+#detailView #detail_right #detail_imgs img{
+/*	padding: 0px;*/
+/*	height: 100px;*/
+/*	margin: 0px 0px 0px 5px;*/
+}
+
+#detailView #detail_long{
+	margin: 0.7rem 1.5rem;
+	border: 1px solid #8c837c;
+	border-radius: 0px;
+	position: absolute;
+	padding: 1.5rem;
+	top: 28rem;
+	left: 0px;
+	width: calc(100% - 6.5rem);
+	height: 18rem;
+	background: #f2f4f1;
+	color: #000000;
+	opacity: 0.75;
+	overflow-y: auto;
+}
+#detailView #detail_long::-webkit-scrollbar{
+	background-color: #8c837c;
+	width: 3px;
+}
+#detailView #detail_long::-webkit-scrollbar-thumb{
+	background: #3d3936;
+	width: 2px;
+	border-radius: 2px;
+}
+
+
+
+#board_delete{
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	width: 2rem;
+	height: 2rem;
+	background-image: url("../img/delete.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	opacity: 0.25;
+}
+#board_delete:hover{
+	opacity: 1;
+}
+#board_detail,#board_contact{
+	position: absolute;
+	top: 0px;
+	width: 8rem;
+	height: 3rem;
+	border: 0.5rem solid #ffff; 
+	border-top: 0px;
+	background: #f6f6f6;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #cdcdcd;
+
+	text-shadow: 1px 1px 0px rgb(205, 205, 205,0.5);
+}
+#board_detail{
+	left: calc(50% - 7.5rem);
+}
+#board_contact{
+	left: 50%;	
+}
+
+/* contactView */
+#contactView{
+	display: flex;
+	top: 4rem;
+	left: 0px;
+	width: 100%;
+	height: calc(100% - 50px);
+
+	position: absolute;
+
+	box-shadow: 0px 0px 1.5rem rgb(0,0,0,0);
+	background: #f2f4f1;
+}
+
+/* chatList 模块*/
+#chatList{
+  display:block;
+	margin: 0px auto;
+	width: 100%;
+	height: calc(100% - 80px);
+	list-style-type: none;
+
+	overflow-y: scroll;
+}
+
+.leftBar,.rightBar{
+	display: flex;
+	align-items: flex-start;
+	max-width: 75%;
+  position: relative;
+/*	background: #656935;*/
+}
+#chatList .M_head{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 2rem;
+	border: 2px solid #bcbcbc;
+}
+#chatList .M_text{
+	margin: 0px 5px;
+	max-width: calc(100% - 3rem);
+}
+#chatList .M_name{
+  font-weight: bold;
+	font-size: 1.2rem;
+}
+#chatList .M_time{
+	margin: 0px 5px;
+	font-size: 1rem;
+	color: #999999;
+}
+#chatList .textHead{
+	font-family: xiaohei;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: flex-end;
+}
+#chatList .M_content{
+	color: #555555;
+	font-family: zhengwen;
+	word-spacing: 2px;
+	font-weight: normal;
+  opacity:0.5;
+
+ 	margin: 5px 0px;
+	font-size: 1.2rem;
+  text-align: left;
+}
+
+.leftBar{
+  left:25px;
+  margin: 25px 0px 25px 0px;
+	justify-content: left;
+}
+.leftBar *{
+	justify-content: flex-start;
+}
+.leftBar .M_content{
+  float: left;
+}
+
+.rightBar{
+  left:22.5%;
+  margin: 25px 0px 25px 0px;
+	justify-content: flex-end;
+}
+.rightBar *{
+	justify-content: flex-end;
+}
+.rightBar .M_content{
+  float: right;
+}
+
+/*sendingModule 模块*/
+.sendingModule{
+/*	align-items: center;*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: transparent;
+	height: 75px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	border-top: 2px solid rgb(0,0,0,0.02);
+
+	border-radius: 0px;
+}
+.sendingModule input{
+	border: none;
+	outline: none;
+	background: transparent;
+}
+.sendingModule input[type="text"]{
+	text-indent: 20px;
+	font-size: 1.5rem;
+	color: rgb(0,0,0,0.5);
+/*	background: #680034;*/
+	min-height: 3rem;
+	width: 90%;
+}
+.sendingModule input[type="button"]{
+	margin: 0px 25px;
+	width: 40px;
+	height: 40px;
+	font-size: 1.5rem;
+	color: #999999;
+
+
+	background-image: url(../img/main/send.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.sendingModule input::placeholder{
+	color: rgb(0,0,0,0.2);
+}

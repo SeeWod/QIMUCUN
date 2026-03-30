@@ -1,0 +1,280 @@
+#loginPart{
+	width: 100%;
+	height:100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	display: none;
+/*	display:flex;*/
+	align-items: center;
+	justify-content: center;
+	background: rgb(0,0,0,0.6);
+}
+#LP_wrap{
+	width: 90rem;
+	height: 60rem;
+	position: relative;
+	background: #ffff;
+}
+#LP_wrap input[type="text"]::placeholder{
+	opacity: 0.5;
+}
+#LP_wrap input[type="password"]::placeholder{
+	opacity: 0.5;
+}
+#LP_wrap input[type="text"]:focus{
+	outline: none;
+}
+#LP_wrap input[type="password"]:focus{
+	outline: none;
+}
+#LP_wrap > *{
+	position: absolute;
+	top: 1rem;
+	left: 5rem;
+	width: 80rem;
+	height: 58rem;
+/*	background: #894523;*/
+	background: #f8fbf9;
+}
+#LP_main{
+/*	display: none;*/
+	font-size: 1.5rem;
+	background-image: url("../img/login/welcome1.jpg");
+	background-size: 50rem;
+	background-position: center 4rem;
+	background-repeat: no-repeat;
+}
+#LP_main Button,#LP_introduce Button{
+	width: 98%;
+	margin: 1rem auto;
+	text-align: right;
+	background: transparent;
+	border: 0px;
+}
+#LP_main Button:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_main ul{
+	margin: 40rem auto 0px;
+	height: 4rem;
+	width: 30rem;
+	background-image: url("../img/line.png");
+	background-size: contain;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+/*	background: #487365;*/
+	display: flex;
+}
+#LP_main li{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	width: 33%;
+}
+#LP_main ul li:nth-child(2){
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_main ul li:hover,f#LP_main Button:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_main ul li:nth-child(2):hover{
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+
+#LP_login{
+	display: none;
+}
+#LP_login form{
+	margin: 12rem auto 0rem;
+	/*display: none;*/
+	width: 20rem;
+/*	background: #452935;*/
+}
+#LP_login > p{
+  position:absolute;
+	bottom: 2rem;
+  left: 2.5%;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 95%;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_login > p span:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_login form *{
+	font-size: 1.5rem;
+}
+#LP_login form #LPL_Cpassword{
+	margin: 0px 0px 2rem 0px;
+	width: 100%;
+	font-size: 1rem;
+	text-align: right;
+	opacity: 0.5;
+}
+#LP_login form #LPL_Cpassword:hover{
+	opacity: 1;
+}
+#LP_login form #LPL_return{
+	color: red;
+	width: 100%;
+	font-size: 1rem;
+/*	text-align: right;*/
+}
+#LP_login input{
+	text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_login input[type="button"]{
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_login input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+
+
+#LP_register{
+	display: none;
+}
+#LP_register form{
+	margin: 7rem auto 0px;
+	/*display: none;*/
+	width: 42rem;
+/*	background: #452935;*/
+}
+#LP_register form div{
+	display: flex;
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+/*	width: 20rem;*/
+}
+#LP_register form p{
+	width: 20rem;
+	text-align: right;
+	font-size: 1rem;
+	opacity: 0.25;
+/*	width: 20rem;*/
+}
+#LP_register form select{
+  text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 20rem;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_register > p{
+	margin: 2rem auto;
+	bottom: 0px;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 20rem;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_register form *{
+	font-size: 1.5rem;
+}
+#LP_register #LPL_remarks{
+	font-weight: normal;
+	opacity: 0.4;
+	width: 20rem;
+	font-size: 1rem;
+/*	text-align: right;*/
+}
+#LP_register input{
+	text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 20rem;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_register input[type="button"]{
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_register input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+#LP_register_back{
+	width: 4rem;
+	background: transparent;
+	opacity: 0.5;
+	margin: 1rem;
+	font-size: 2.5rem;
+}
+#LP_register_back:hover{
+	background: #d9d9d9;
+}
+
+
+#LP_changePassword{
+	display: none;
+}
+#LP_changePassword form{
+	margin: 8rem auto 14rem;
+	/*display: none;*/
+	width: 20rem;
+/*	background: #452935;*/
+}
+#LP_changePassword > p{
+	margin: 2rem auto;
+	bottom: 0px;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 95%;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_changePassword > p span:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_changePassword form *{
+	font-size: 1.5rem;
+}
+#LP_changePassword input{
+	text-indent: 1rem;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_changePassword input[type="button"]{
+	color: #ffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_changePassword input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+
+#LP_introduce{
+	display: none;
+
+}
+#LP_introduce p{
+	margin: 10rem auto 0px;
+	width: 80%;
+	font-size: 1.3rem;
+/*	display: none;*/
+	
+}

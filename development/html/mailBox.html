@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+
+	<title>七木村学生事务所</title>
+	<link rel="stylesheet" type="text/css" href="../css/frame.css">
+	<link rel="stylesheet" type="text/css" href="../css/chatList.css">
+	<link rel="stylesheet" type="text/css" href="../css/mailBox.css">
+	<link rel="stylesheet" type="text/css" href="../css/font.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="../js/functionLibrary.js"></script>
+	<script src="../js/frame.js"></script>
+    <script src="../js/mailBox.js"></script>
+
+</head>
+<body>
+	<content>
+		<div id="left_part" onmouseover="changeInfo()">
+			<div id="info">
+				<button id="U_headImg"></button>
+    			<p id="logo">七木村学生事务所</p>
+				<button id="station" onclick="cs_user_noMain()">厦门理工学院</button>
+			</div>
+			<div id="main_icon">
+				<ul>
+<!--
+					<li><a href="joinTeam.html"><img src="../img/icon/office.png" width="50%"><p>事务官</p></a></li>
+-->
+				</ul>
+				<ul>
+					<li><a href="mailBox.html"><img src="../img/icon/mailBox.png" width="50%"><p>站长邮箱</p></a></li>
+					<li><a href="self.html"><img src="../img/icon/perInfo.png" width="50%"><p>个人信息</p></a></li>
+					<li onclick = "no()"><a href="building.html"><img src="../img/icon/skinShop.png" width="50%"><p>皮肤商店</p></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="main_part">
+			<ul id="navigation">
+				<li onclick="changePage('customer')">
+					<div>
+						<img src="../img/mailBox/customer.png">
+						<h1>客服服务</h1>
+					</div>
+					<p>如 在使用过程中有任何问题，请联系客服。我们会尽快帮您解决</p>
+				</li>
+				<li onclick="changePage('mail')">
+					<div>
+						<img src="../img/mailBox/mailBox2.png">
+						<h1>站长邮箱</h1>
+					</div>
+					<p>若您对其’七木村事务所'的建设与发展有些许建议，欢迎你的留言！</p>
+				</li>
+				<li onclick="changePage('cooperate')">
+					<div>
+						<img src="../img/mailBox/cooperate.png">
+						<h1>招商服务</h1>
+					</div>
+					<p>广告招租，兼职、租房等各类信息服务请在此处联系</p>
+				</li>
+			</ul>
+
+			<div id="content">
+
+				<div id="mail">
+	     			 <!--YOU HAVE A MESSAGE！SEND A MESSAGE!-->
+					<h1 id="mailBox_tip">SEND A MESSAGE &nbsp ！</h1>
+					<div id="envelop">
+						<div>
+							<form>
+						<!-- 		HELLO 小玲子,   YOUR MESSAGE:-->
+								<div id="mail_id" style="display:none">0</div>
+								<div id="hello">FOR 站长,</div>
+								<div id="hello2">THE MESSAGE:</div>
+								<textarea id="eContent" placeholder="500以内"></textarea>
+							</form>
+						</div>	
+					</div>	
+					<button id="acceptB" onclick="sendMail_Deal()">send</button>
+				</div>
+
+				<div id="customer">
+					<ul id="chatList" onscroll="getHistoryMessage(this)">
+						<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+						<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+	               		<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+				    	<li class="leftBar">
+							<img class='M_head' src = "../img/head.png">
+							<div class='M_text'>
+								<div class='textHead'>
+									<p class='M_name'>肖</p>
+									<p class='M_time'>12：31</p>
+								</div>
+								<p class='M_content'>大夫就ask发</p>
+							</div>
+						</li>
+				        <li class="leftBar">
+					        <img class="M_head" src="../img/head.png">
+					        <div class="M_text">
+					            <div class="textHead">
+					              	<p class="M_name">呆</p>
+					              	<p class="M_time">08:48</p>
+					            </div>
+					            <p class="M_content">sdsafdsfasgd</p>
+					        </div>
+				        </li>
+						<li class="rightBar">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_time">12：31</p>
+									<p class="M_name">肖</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+							<img class="M_head" src = "../img/head.png">
+						</li>
+												<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+	               		<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+				    	<li class="leftBar">
+							<img class='M_head' src = "../img/head.png">
+							<div class='M_text'>
+								<div class='textHead'>
+									<p class='M_name'>肖</p>
+									<p class='M_time'>12：31</p>
+								</div>
+								<p class='M_content'>大夫就ask发</p>
+							</div>
+						</li>
+				        <li class="leftBar">
+					        <img class="M_head" src="../img/head.png">
+					        <div class="M_text">
+					            <div class="textHead">
+					              	<p class="M_name">呆</p>
+					              	<p class="M_time">08:48</p>
+					            </div>
+					            <p class="M_content">sdsafdsfasgd</p>
+					        </div>
+				        </li>
+						<li class="rightBar">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_time">12：31</p>
+									<p class="M_name">肖</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+							<img class="M_head" src = "../img/head.png">
+						</li>
+												<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+	               		<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+				    	<li class="leftBar">
+							<img class='M_head' src = "../img/head.png">
+							<div class='M_text'>
+								<div class='textHead'>
+									<p class='M_name'>肖</p>
+									<p class='M_time'>12：31</p>
+								</div>
+								<p class='M_content'>大夫就ask发</p>
+							</div>
+						</li>
+				        <li class="leftBar">
+					        <img class="M_head" src="../img/head.png">
+					        <div class="M_text">
+					            <div class="textHead">
+					              	<p class="M_name">呆</p>
+					              	<p class="M_time">08:48</p>
+					            </div>
+					            <p class="M_content">sdsafdsfasgd</p>
+					        </div>
+				        </li>
+						<li class="rightBar">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_time">12：31</p>
+									<p class="M_name">肖</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+							<img class="M_head" src = "../img/head.png">
+						</li>
+												<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+	               		<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+				    	<li class="leftBar">
+							<img class='M_head' src = "../img/head.png">
+							<div class='M_text'>
+								<div class='textHead'>
+									<p class='M_name'>肖</p>
+									<p class='M_time'>12：31</p>
+								</div>
+								<p class='M_content'>大夫就ask发</p>
+							</div>
+						</li>
+				        <li class="leftBar">
+					        <img class="M_head" src="../img/head.png">
+					        <div class="M_text">
+					            <div class="textHead">
+					              	<p class="M_name">呆</p>
+					              	<p class="M_time">08:48</p>
+					            </div>
+					            <p class="M_content">sdsafdsfasgd</p>
+					        </div>
+				        </li>
+						<li class="rightBar">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_time">12：31</p>
+									<p class="M_name">肖</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+							<img class="M_head" src = "../img/head.png">
+						</li>
+					</ul>
+
+					<form class="sendingModule">
+						<input type="text" id="chatMessage" placeholder="输入寄出消息">
+						<input type="button" onclick="sendMessage('smessage1')">
+					</form>
+				</div>
+				<div id="cooperate">
+					<div>
+						<h5><span class="tag"></span><span>校园站·厦门理工学院</span></h5>
+						<ul>
+							<li>广告推送</li>
+							<li>兼职信息发布</li>
+							<li>租房信息发布</li>
+							<li>其他校园及其周边服务合作 . . .</li>					
+						</ul>
+						<p>qimucun_xmut</p>
+					</div>
+					<div>
+						<h5><span class="tag"></span><span>总服务处</span></h5>
+						<ul>
+							<li>所有站点 广告推送</li>
+							<li>其他合作服务 . . .</li>	
+						</ul>
+						<p>qimucun_server</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<a href="main.html"><img src="../img/back_mailBox.png"></a>
+	</content>
+</body>
+</html>

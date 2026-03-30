@@ -1,0 +1,142 @@
+name: App CI/CD (hybrid-managed)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build frontend (if exists)
+        shell: bash
+        run: |
+          set -e
+          if [ -d "frontend" ]; then
+            cd frontend
+            if [ -f "package-lock.json" ] || [ -f "pnpm-lock.yaml" ] || [ -f "yarn.lock" ]; then
+              npm ci || true
+            fi
+            npm run build || echo "frontend build skipped"
+            cd ..
+          else
+            echo "frontend directory not found, skip"
+          fi
+
+      - name: Archive frontend dist
+        if: ${{ hashFiles('frontend/dist/**') != '' }}
+        run: |
+          tar -czf frontend-dist.tar.gz -C frontend dist
+
+      - name: Upload artifact (frontend-dist)
+        if: ${{ hashFiles('frontend/dist/**') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend-dist.tar.gz
+
+      - name: Docker login (registry)
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ vars.ACR_REGISTRY }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Build and push backend image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile.php-fpm
+          push: true
+          tags: ${{ vars.ACR_REGISTRY }}/${{ vars.IMAGE_PREFIX }}/${{ vars.APP_NAME }}:latest
+
+  cd:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifact (frontend-dist)
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: artifacts
+        continue-on-error: true
+
+      - name: Generate .env for compose
+        run: |
+          mkdir -p deploy/out
+          cat > deploy/out/.env << 'EOF'
+          APP_NAME=${{ vars.APP_NAME }}
+          APP_NETWORK_NAME=${{ vars.APP_NETWORK_NAME }}
+          INFRA_NETWORK_NAME=${{ vars.INFRA_NETWORK_NAME }}
+          INFRA_DEPLOY_PATH=${{ vars.INFRA_DEPLOY_PATH }}
+          APP_DEPLOY_PATH=${{ vars.APP_DEPLOY_PATH }}
+          APP_PORT=${{ vars.APP_PORT }}
+          APP_IMAGE=${{ vars.ACR_REGISTRY }}/${{ vars.IMAGE_PREFIX }}/${{ vars.APP_NAME }}:latest
+          APP_ENV=production
+          DB_HOST=${{ secrets.DB_HOST }}
+          DB_PORT=${{ vars.DB_PORT }}
+          DB_DATABASE=${{ vars.DB_DATABASE }}
+          DB_USERNAME=${{ secrets.DB_USERNAME }}
+          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          EOF
+
+      - name: Render nginx conf from template
+        run: |
+          sed \
+            -e "s|__APP_SERVER_NAME__|${{ vars.APP_SERVER_NAME }}|g" \
+            -e "s|__INFRA_DEPLOY_PATH__|${{ vars.INFRA_DEPLOY_PATH }}|g" \
+            -e "s|__APP_NAME__|${{ vars.APP_NAME }}|g" \
+            -e "s|__APP_PORT__|${{ vars.APP_PORT }}|g" \
+            deploy/nginx/app.conf.tpl > deploy/out/${{ vars.APP_NAME }}.conf
+
+      - name: Prepare compose bundle
+        run: |
+          cp docker-compose.yml deploy/out/docker-compose.yml
+
+      - name: Copy files to server (APP + Nginx)
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ vars.SSH_PORT }}
+          username: ${{ vars.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "deploy/out/*,artifacts/frontend-dist.tar.gz"
+          target: "${{ vars.APP_DEPLOY_PATH }}"
+          overwrite: true
+
+      - name: Remote deploy via SSH
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ vars.SSH_PORT }}
+          username: ${{ vars.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            set -e
+            mkdir -p "${APP_DEPLOY_PATH}"
+            mkdir -p "${APP_DEPLOY_PATH}/data"
+            mkdir -p "${INFRA_DEPLOY_PATH}/nginx/conf.d"
+            mkdir -p "${INFRA_DEPLOY_PATH}/static/${APP_NAME}"
+            cp "${APP_DEPLOY_PATH}/${APP_NAME}.conf" "${INFRA_DEPLOY_PATH}/nginx/conf.d/${APP_NAME}.conf"
+            if [ -f "${APP_DEPLOY_PATH}/frontend-dist.tar.gz" ]; then
+              tar -xzf "${APP_DEPLOY_PATH}/frontend-dist.tar.gz" -C "${INFRA_DEPLOY_PATH}/static/${APP_NAME}" --strip-components=1
+            fi
+            if [ -f "${INFRA_DEPLOY_PATH}/deploy/docker-compose.yml" ]; then
+              docker compose -f "${INFRA_DEPLOY_PATH}/deploy/docker-compose.yml" up -d
+            else
+              sudo nginx -t && sudo systemctl reload nginx
+            fi
+            docker compose --env-file "${APP_DEPLOY_PATH}/.env" -f "${APP_DEPLOY_PATH}/docker-compose.yml" up -d

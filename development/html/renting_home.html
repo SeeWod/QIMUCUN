@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+  	<meta name="description" content="厦门理工学院二手信息发布平台兼职信息发布平台">
+  	<meta name="keywords" content="校园兼职网站 大学生兼职 家教 钟点工">
+
+
+	<title>七木村学生事务所</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.css">
+	<link rel="stylesheet" type="text/css" href="../css/frame.css">
+	<link rel="stylesheet" type="text/css" href="../css/renting.css">
+	<link rel="stylesheet" type="text/css" href="../css/font.css">
+	<link rel="stylesheet" type="text/css" href="../css/cropper-self_renting.css">
+
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js"></script>
+	<script src="../js/functionLibrary.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/frame.js"></script>
+	<script src="../js/renting.js"></script>
+	<script src="../js/cropper-self_renting.js"></script>
+
+</head>
+<body>
+	<content>
+		<div id="cropper_module">
+			<div id="cropper_window">
+				<div id="cropper_upPart">
+					<p id="cropper_headline">裁剪图片</p>
+					<button id="cropper_closeB" onclick="cropperMclose()"></button>
+				</div>
+				<div id="cropper_ceterPart">
+					<div id="cropper_cLeftPart">
+						<div id="cropper_wrap">
+							<img id="cropperImg" src="">
+						</div>
+						<ul id="cropper_buttons">
+							<li onclick="cropperOperate('anticlockwise')"></li>
+							<li onclick="cropperOperate('clockwise')"></li>
+							<li onclick="cropperOperate('reset')"></li>
+						</ul>
+					</div>
+					<div id="cropper_cRightPart">
+						<p>裁剪预览</p>
+						<div id ="preview"></div>
+					</div>
+				</div>
+
+				<div id="cropper_footPart">
+					<button id="finishC" onclick="cropperEnd()">完成裁剪</button>
+				</div>
+			</div>
+		</div>
+<!-- —————————————————————————————————————————————————————————————————————————————————————————————————— -->
+		<div id="publish_rule_detail">
+			<div id="PRD_wrap">
+				<button onclick="PRD_close()">关闭</button>
+				<p>兼职发布规定</p>
+				<p></p>
+			</div>
+		</div>
+
+		<div id="left_part" onmouseover="changeInfo()">
+			<div id="info">
+				<button id="U_headImg" onclick="headImgLogin()"></button>
+    			<p id="logo">七木村学生事务所</p>
+				<button id="station" onclick="cs_user_noMain()">厦门理工学院</button>
+			</div>
+
+			<div id="main_icon">
+				<ul>
+<!--
+					<li><a href="joinTeam.html"><img src="../img/icon/office.png" width="50%"><p>事务官</p></a></li>
+-->
+				</ul>
+				<ul>
+					<li><a href="mailBox.html"><img src="../img/icon/mailBox.png" width="50%"><p>站长邮箱</p></a></li>
+					<li><a href="self.html"><img src="../img/icon/perInfo.png" width="50%"><p>个人信息</p></a></li>
+					<li onclick = "no()"><a disabled="true"><img src="../img/icon/skinShop.png" width="50%"><p>皮肤商店</p></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="main_part">
+			<div id="up">
+				<form id="search" onsubmit="return false;">
+					<div><img src="../img/renting/college.png"><span>厦门市</span><span>厦门理工学院</span>&nbsp &nbsp<img src="../img/common/sort.png" onclick=""></div>
+<!--
+					<div>
+						<input type="text" id="S_text" onkeydown="keydown(event)">
+						<input type="button" onclick="searchWithText()">
+					</div>
+-->
+<!--					<div>
+						<p>房型</p>
+						<select id="S_houseType" onchange="setPlace()">
+							<option value="不限">不限</option>
+						    <option value="公寓">公寓</option>
+						    <option value="民宿">民宿</option>
+						</select>
+					</div>
+                
+					<div>
+						<p>出租时长</p>
+						<select id="S_rentTime" onchange="setPeriod()">
+							<option value="不限">不限</option>
+						    <option value="短租">短租</option>
+						    <option value="长租">长租( 3月+ )</option>
+						</select>
+					</div>
+-->
+<!--
+					<div>
+						<p>租金</p>
+						<select id="S_payWay" onchange="setPayWay()">
+						    <option value="不限">不限</option>
+						    <option value="日结">日结</option>
+						    <option value="周结">周结</option>
+						    <option value="月结">月结</option>
+						    <option value="完工结">完工结</option>
+						    <option value="按件结">按件结</option>
+						</select>
+					</div>
+-->
+					<div>
+						<p>排序</p>
+						<select id="S_order" onchange="setSort()">
+						    <option value="random">随机</option>
+						    <option value="租金">租金</option>
+<!--						    <option value="评分">评分</option>-->
+						</select>
+					</div>
+				</form>
+			</div>
+
+			<div id="between">
+				<ul id="betweenLeft">
+					<img id="left_addViewB" onclick="openAddView(this)" title="发布新信息" src="../img/partTime/add.png">
+					<img id="left_getRecordB" onclick="setTag('我的收藏')" title="我的收藏" src="../img/common/save.png">
+					<img id="left_closeDetail" onclick="closeDetailPage(this)" title="关闭详情页面" src="../img/partTime/add.png">
+					<img id="left_recordORDeleteB" onclick="R_recordORDelete(this)" title="收藏/取消收藏" src="../img/common/save.png">
+					<img id="left_myPublishB" onclick="setTag('我的发布')" title="我的发布" src="../img/common/published.png">
+<!-- 					<li id="left_saveB"></li>
+					<li id="left_saveB"></li> -->
+				</ul>
+				<div id="detailPage">
+						<div id="detailPage_Left">
+							<h1 id="detail_name">小屋信息</h1>
+              <p id="detail_id" style="display:none"></P>
+							<p id="detail_overview"><span>概况：</span>xxxxxxxxxxxxxxx</p>
+							<ul id="detailPage_texts">
+								<li><img src="../img/renting/address.png"><span id="detail_address">地址：xxx</span></li>
+								<li><img src="../img/renting/college.png"><span id="detail_college">cxxxx</span>&nbsp
+									<img src="../img/renting/walk.png"><span id="detail_walk">步行:xxxxx
+								</li>
+								<li>
+									<img src="../img/renting/house.png">
+									<span id="detail_size">xxm²,</span>
+									<span id="detail_roomType">xx,</span>
+									<span id="detail_houseType">xx</span>
+								</li>
+								<li><img src="../img/renting/furniture.png"><span id="detail_furniture"></span></li>
+								<li><img src="../img/renting/serve.png"><span id="detail_serve"></span></li>
+								<li>
+									<img src="../img/renting/charge.png">
+									<span id="detail_hire">xx</span>
+									<span id="detail_payWay">xx</span>
+									<span id="detail_waterCharge"> 水:xx/吨,</span>
+									<span id="detail_electricCharge">电xx/度,</span>
+									<span id="detail_networkCharge"></span>
+								</li>
+							</ul>
+							<h1>出租信息</h1>
+							<div id="detailPage_rentInfo">
+								<p><span>方式：</span>
+									<input type="checkbox" disabled name="detail_rentType" value="整租">整租&nbsp &nbsp
+									<input type="checkbox" disabled name="detail_rentType" value="合租">合租&nbsp &nbsp
+								</p>
+								<p><span>时长：</span>
+									<input type="checkbox" disabled name="detail_rentTime" value="短租">短租&nbsp &nbsp
+									<input type="checkbox" disabled name="detail_rentTime" value="长租">长租(&nbsp3月+&nbsp)&nbsp &nbsp
+								</p>
+							  <p id="detail_contact">联系方式：xxx</p>
+							</div>
+							<div id ="AddPage_rule"><input type="checkbox" name="rule" value="true"><p onclick="PRD_open()">预定须知</p></div>
+							<button id="AddPage_publish_submit" onclick="PT_Publish()">预 定</button>
+						</div>
+						<!-- 右边 -->
+						<div id="detailPage_Right">
+							<h1>图片预览</h1>
+							<div>
+								<img id="bigImg_detail">
+								<ul id="detailPage_imgs">
+                  <img onerror="this.style.display='none'" onmouseover="getBigImg_detail(this)">
+                  <img onerror="this.style.display='none'" onmouseover="getBigImg_detail(this)">
+                  <img onerror="this.style.display='none'" onmouseover="getBigImg_detail(this)">
+                  <img onerror="this.style.display='none'" onmouseover="getBigImg_detail(this)">
+                  <img onerror="this.style.display='none'" onmouseover="getBigImg_detail(this)">
+								</ul>
+							</div>
+						</div>
+				</div>
+
+				<div id="betweenAddPage">
+					<form id="AddPage_publishPart" onsubmit="return false;">
+						<div id="AddPage_formLeft">
+							<h2>小屋信息</h2>
+							<textarea id="publish_overview" placeholder="概况:"></textarea>
+							<div class="publish_annotation">&nbsp &nbsp &nbsp</div>
+							<div id="publish_texts">
+								<div>
+									<p><span>地址：</span><input type="text" id="publish_address" placeholder="必填,50字以内"><span>名称：</span><input type="text" id="publish_name" placeholder="必填,10字以内"></p>
+								</div>
+								<div>
+									<p><span>大小：</span><input type="text" id="publish_size">&nbspm²</p>
+									<p><span>室型：</span><input type="text" id="publish_roomType"></p>
+									<p>
+										<span>户型：</span>
+										<select id="publish_houseType">
+										    <option value="公寓">公寓</option>
+										    <option value="/周">/周</option>
+										    <option value="/年">/年</option>
+										</select>
+									</p>
+								</div>
+								<div>
+									<p><span>家具：</span><input type="text" id="publish_furniture" placeholder="必填,50字以内"></p>
+									<p class="publish_annotation">例如：公共洗衣房(投币式)，一桌一椅，空调， 暖气片， 风扇</p>
+								</div>
+								<div>
+									<p><span>服务：</span><input type="text" id="publish_serve"  placeholder="可选,50字以内"></p>
+									<p class="publish_annotation">例如：自行车库，监控摄像机，娱乐室</p>
+								</div>
+								<div>
+									<p>
+										<span>房租：</span>
+										<input type="text" id="publish_hire" placeholder="数字">
+										<select id="publish_payWay">
+										    <option value="/月">/月</option>
+										    <option value="/周">/周</option>
+										    <option value="/年">/年</option>
+										</select>
+									</p>
+									<p>
+										<span>水电：</span>
+										<input type="text" id="publish_waterCharge" placeholder="数字"><span>/吨,</span>
+										<input type="text" id="publish_electricCharge" placeholder="数字"><span>/度,</span>
+									</p>
+									<p>
+										<span>网络：</span>
+										<input type="text" id="publish_networkCharge" placeholder="必填,20字以内">
+									</p>
+<!-- 									<p>
+										<span>煤气：</span>
+										<input type="text" id="publish_gasCharge">
+									</p> -->
+								</div>
+							</div>
+							<div class="publish_annotation">出租信息</div>
+							<div id="publish_rentInfo">
+								<p><span>方式(多选)：</span>
+									<input type="checkbox" name="publish_rentType" value="整租">整租&nbsp &nbsp
+									<input type="checkbox" name="publish_rentType" value="合租">合租&nbsp &nbsp
+								</p>
+								<p><span>时长(多选)：</span>
+									<input type="checkbox" name="publish_rentTime" value="短租">短租&nbsp &nbsp
+									<input type="checkbox" name="publish_rentTime" value="长租">长租&nbsp &nbsp
+								</p>
+								<p><span>联系方式：</span>
+									<input type="text" id="publish_contact" placeholder="必填,20字以内">
+								</p>
+							</div>
+							<div class="publish_annotation">校园信息</div >
+							<div id="publish_collegeInfo">
+								<div class="collegeInfo_row">
+									<div><input type="text" id="publish_college" class="PCI_college" placeholder="大学名称/地址：如理工小北门"></div>
+									<div><input type="text" id="publish_walk" class="PCI_walk" placeholder="步行时长(单位:分)"></div>
+								</div>
+							</div>
+							<div id ="AddPage_rule"><input type="checkbox" name="rule" value="true"><p onclick="PRD_open()">兼职发布相关规定</p></div>
+							<button id="AddPage_publish_submit" onclick="R_Publish()">兼 职 发 布</button>
+						</div>
+						<!-- 右边 -->
+						<div id="AddPage_formRight">
+							<h2>图片预览</h2>
+							<div>
+								<div id="bigImg_publish"></div>
+								<ul id="imgs">
+									<li id="mainImgB" onclick="selectFile(this)" onmouseover="getBigImg_publish(this)"><input type="file" id = "mainPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'main')"></li>
+									<li id = "firstImgB" onclick="selectFile(this)" onmouseover="getBigImg_publish(this)"><input type="file" id = "firstPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'first')"></li>
+									<li id = "secondImgB" onclick="selectFile(this)" onmouseover="getBigImg_publish(this)"><input type="file" id = "secondPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'second')"></li>
+									<li id = "thirdImgB" onclick="selectFile(this)" onmouseover="getBigImg_publish(this)"><input type="file" id = "thirdPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'third')"></li>
+									<li id = "fourthImgB" onclick="selectFile(this)" onmouseover="getBigImg_publish(this)"><input type="file" id = "fourthPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'fourth')"></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="betweenBoards">
+					<div id="unNormalBoard">
+						<div>
+							<h3>合租室友寻找中. . .</h3>
+							<ul id="subletBoard">
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+						<div id="jointRentBoard">
+							<h3>限时转租中. . .</h3>
+							<ul id="jointRentBoard">
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+					<ul id="normalBoard">
+						<li id="R_id"  onclick='getMore(this)'>
+							<img src="">
+							<h3 class="R_name">M公寓</h3>
+							<p class="R_hire"><span>￥600</span>/月</p>
+							<p class="R_collegeWalk">厦门理工学院 步行：9分钟</p>
+						</li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="footer">
+				<p>总计<span id="PT_total">0</span>个职位</p>
+			</div>	
+		</div>
+		<a href="main.html"><img src="../img/back.png"></a>
+	</content>
+</body>
+</html>

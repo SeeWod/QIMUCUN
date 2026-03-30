@@ -1,0 +1,9 @@
+data/
+storage/
+uploads/
+cache/
+logs/
+artifacts/
+deploy/out/
+.env
+frontend-dist.tar.gz

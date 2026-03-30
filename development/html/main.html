@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+
+	<title>七木村学生事务所</title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/frame.css">
+	<link rel="stylesheet" type="text/css" href="../css/font.css">
+	<link rel="stylesheet" type="text/css" href="../css/classOften.css">
+	<!-- 模块 -->
+	<link rel="stylesheet" type="text/css" href="../css/chatList.css">
+	<link rel="stylesheet" type="text/css" href="../css/loginPart.css">
+	<!-- 模块/ -->
+ 	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="../js/functionLibrary.js"></script>
+	<script src="../js/frame.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/main.js"></script>
+
+</head>
+<body>
+	<content>
+		<!-- 登录模块 -->
+		<div id="loginPart">
+			<div id="LP_wrap">
+				<div id="LP_main">
+					<button onclick="LP_page('LP_introduce')">介&nbsp绍</button>
+					<ul>
+						<li onclick="login_Visiter()">游&nbsp客</li>
+						<li onclick="LP_page('LP_login')">登&nbsp录</li>
+						<li onclick="LP_page('LP_register')">注&nbsp册</li>
+					</ul>
+				</div>
+				<div id="LP_login">
+					<button id="LP_register_back" onclick="LP_page('LP_main')"></button>
+					<form>
+						<input type="text" placeholder="id" id="login_U_id">
+						<input type="password" placeholder="密码" id="login_U_password">
+						<p id="LPL_Cpassword" onclick="LP_page('LP_changePassword')">忘记密码?</p>
+						<input type="button" value="登&nbsp &nbsp &nbsp录" onclick="login(false)">
+						<p>————— &nbsp &nbsp &nbsp —————</p>
+						<p id="LPL_return"><!--密码错误--></p>
+					</form>
+					<p><span onclick="login_Visiter()">游客</span><span onclick="LP_page('LP_register')">注册</span></p>
+				</div>
+				<div id="LP_register">
+					<button id="LP_register_back" onclick="LP_page('LP_main')"><</button>
+					<form>
+						<div>
+							<input type="text" placeholder="id" id="register_R_id">
+							<input type="text" placeholder="昵称" id="register_R_name">
+							<p>10位或11位数字(非0开头)</p>
+							<p>8位以下字符</p>
+							<input type="password" placeholder="密码" id="register_R_password">
+				            <select id="register_R_school">
+				              <option value="厦门理工学院">厦门理工学院</option>
+				              <!--<option value="saab">厦门软件</option>-->
+				              <!--<option value="opel">晋中学院</option>-->
+				              <!--<option value="audi">Audi</option>-->
+				            </select>
+							<p>12位以下字符</p>
+							<p></p>
+							<input type="password" placeholder="确认密码" id="register_R_confirm">
+							<input type="text" placeholder="手机号" id="register_R_phone">
+							<input type="button" value="注&nbsp &nbsp &nbsp册" onclick="register()">
+						</div>
+					</form>
+						<p id="LPL_remarks">
+							———————— &nbsp &nbsp &nbsp ————————<br><br>
+							- 可以使用您的QQ、手机号作为ID,方便记忆<br>
+							- 同时为了确保您的账户安全,请不要使用现期的QQ密码<br>
+							- 如果您的密码忘记,手机号将用于密码找回
+						<p>
+	<!-- 				<p><span>游客</span><span>注册</span></p> -->
+				</div>
+				<div id="LP_changePassword">
+					<button id="LP_register_back" onclick="LP_page('LP_login')"></button>
+					<form>
+						<input type="text" placeholder="id" id="changePassword_U_id">
+						<input type="password" placeholder="密码" id="changePassword_U_password">
+						<input type="password" placeholder="确认密码" id="changePassword_U_confirm">
+						<input type="text" placeholder="手机号" id="changePassword_U_phone">
+						<input type="button" value="修&nbsp &nbsp &nbsp改" onclick="changePassword()">
+					</form>
+				</div>
+				<div id="LP_introduce">
+					<button onclick="LP_page('LP_main')">返&nbsp回</button>
+					<p>"七木村小站"是一个用于 <厦门理工学院><校园生活物品流通>的 商品交易 的 信息展示平台。</p>
+				</div>
+			</div>
+		</div>
+		<!-- 登录模块完结 -->
+
+		<!-- 弹出页面合集 弹出页面必须先显popPage-->
+		<!-- popPage用id还是类-->
+		<div id="popPage">
+			<div id="invitationPage">
+			</div>
+
+			<div id="cs_userPage">
+				<div class="pop_bar"><span id="cs_user_title">更换校区</span><span onclick="close_cs_userPage()">关闭</span></div>
+				<div class="pop_frame">
+					<div class="pop_col">学校：<input type="text" id="cs_user_input" oninput="filterCollege(this)" onfocus="openColleges()"><span id="closeCollegesB" onclick="closeColleges()"></span></div>
+					<ul id="cs_colleges">
+						<li onclick="setCollegeValue(this)">厦门理工学院</li>
+					</ul>
+					<button class="pop_submit" onclick="cs()">前&nbsp &nbsp往</button>
+				</div>
+			</div>
+
+			<div id="trumpet_publishPage">
+				<div class="pop_bar"><span id="TP_title">小喇叭管理</span><span onclick="TP_close()">关闭</span></div>
+				<div class="pop_frame">
+					<div>
+						<div class="pop_col">内容:<input id="TP_input" type="text" placeholder="向小喇叭输入内容 <25"></div>
+						<div class="pop_col"><input type="radio" name="TP_hasName" value="true" checked>&nbsp 署名 &nbsp &nbsp &nbsp &nbsp &nbsp<input type="radio" name="TP_hasName" value="false">&nbsp 匿名</div>
+					</div>
+					<button class="pop_submit" onclick="trumpet_publish()">发  &nbsp 出</button>
+				</div>
+			</div>
+
+			<div id="notice_detailPage">
+				<button onclick="ND_close()">关闭</button>
+				<img id="ND_img" src="">
+				<textarea id="ND_text"></textarea>
+			</div>
+
+		</div>
+
+		<!-- 主页面 -->
+		<div id="left_part" onmouseover="changeInfo()">
+			<div id="info">
+				<button id="U_headImg" onclick="headImgLogin()"></button>
+    			<p id="logo">七木村学生事务所</p>
+				<button id="station" onclick="cs_user()">厦门理工学院</button>
+			</div>
+
+			<div id="main_icon">
+				<ul>
+<!--
+					<li onclick="no()"><a disabled><img src="../img/icon/invitation.png" width="50%"><p>邀请函</p></a></li>
+					<li><a href="joinTeam.html"><img src="../img/icon/office.png" width="50%"><p>事务官</p></a></li>
+-->
+				</ul>
+				<ul>
+					<li><a href="mailBox.html"><img src="../img/icon/mailBox.png" width="50%"><p>站长邮箱</p></a></li>
+					<li><a href="self.html"><img src="../img/icon/perInfo.png" width="50%"><p>个人信息</p></a></li>
+					<li onclick = "no()"><a disabled="true"><img src="../img/icon/skinShop.png" width="50%"><p>皮肤商店</p></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="main_part">
+			<div id="noticePage">
+				<button onclick="closeNotice()"></button>
+			</div>
+
+			<div id="up">
+				<div id="notice">
+					<ul id="noticeUL"><!-- 14 -->
+<!--
+						<li class="notice_bar" id="NB_id" onclick="clickChange(this)"><img src="../data/notice/id.jpg"></li>
+-->
+				 	</ul>
+				</div>
+				<div id="affair">
+				 	<ul>
+				 		<!-- <li><a href="lostFound.html"><img src="../img/affairIcon/lost&found.png"><p>失物招领 & 寻物启事</p></a></li> -->
+				 		<!-- <li><a href="blackWriteList.html"><img src="../img/affairIcon/blackWriteList.png"><p>踩坑日记 & 好店推荐</p></a></li> -->
+				 		<li><a href="partTime_home.html"><img src="../img/affairIcon/partTime.png"><p>兼职服务大厅</p></a></li>
+				 		<li><a href="renting_home.html"><img src="../img/affairIcon/renting.png"><p>学生租房</p></a></li>
+
+				 		<li><a href="transaction_home.html"><img src="../img/affairIcon/transaction.png"><p>校园交易中心</p></a></li>
+				 		<!-- <li><a href="bounty.html"><img src="../img/affairIcon/reward.png"><p>悬赏栏</p></a></li> -->
+				 		<!--<li><a href="bounty.html"><img src="../img/affairIcon/labor.png"><p>七木村小工会服务</p></a></li>-->
+				 		<!-- <li><a href="tips.html"><img src="../img/affairIcon/tips.png"><p>送给七木村的小Tip</p></a></li> -->
+<!-- 				 		<li><img><p>失物招领 & 寻物启事</p></li>
+				 		<li><img><p>失物招领 & 寻物启事</p></li> -->
+				 	</ul>
+				 	<img src="../img/label.png">
+				</div>
+				<div id="trumpet">
+					<div id="tru_frame">
+						<div id="tru_move"><img src="../img/trumpet.png"><span>———— &nbsp</span><span id="trumpet_content">点击 "小喇叭" 喊一喊！</span><span>&nbsp ————</span></div>
+					</div>
+					<button id="tru_button" onclick="TP_open()">+</button>
+				</div>
+			</div>
+
+			<div id="down">
+				<div id="chatLog" class="leftBoard">
+					<div id="chatUp">
+						<input type="text" id="chatLogSearch" placeholder="Search">
+					</div>
+					<ul id="chatlogs">
+<!--
+						<li id='' onclick="openChatLog_detail()">
+							<img src="../data/user/userHeadImg/001.jpg">
+							<div id="chatlogTextInfo">
+								<div><span id="chatlog_name">厦门理工学院</span><span id="chatlog_time">18:00</span></div>
+								<div id="chatlog_lastShort">的就是复活卡接电话</div>
+							</div>
+							<p id="unMessage">+6</p>
+						</li>
+-->
+					</ul>
+					<ul id="chatlogButtons">
+						<img src="../img/main/club_add.png">
+						<img src="../img/main/friend_add.png">
+					</ul>
+				</div>
+
+				<div id="chat" class ="centerBoard">
+					<!--<h1 id="RoomName">世界频道</h1>-->
+           <h1 id="RoomId" style="display:none"></h1>
+					<ul id="chatList" onscroll="getHistoryMessage(this)">
+<!--
+						<li class="leftBar">
+							<img class="M_head" src = "../img/head.png">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_name">肖</p>
+									<p class="M_time">12：31</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+						</li>
+-->
+<!--
+						<li class="rightBar">
+							<div class="M_text">
+								<div class="textHead">
+									<p class="M_time">12：31</p>
+									<p class="M_name">肖</p>
+								</div>
+								<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+							</div>
+							<img class="M_head" src = "../img/head.png">
+						</li>
+-->
+					</ul>
+
+					<form class="sendingModule" onsubmit="return false;">
+						<input type="text" id="chatMessage" placeholder="输入寄出消息" onkeydown="keydown_message(event)">
+						<!--<input type="button" onclick="sendMessage('smessage1')">-->
+             <input type="button" onclick="gMessageToS()">
+					</form>
+				</div>
+
+<!-- 				<div id="topic" class="center">
+
+				</div> -->
+
+				<div id="rightInfo" class="rightBoard">
+					<div id="club_info">
+						<p id="club_info_title">信息面板</p>
+						<div>
+							<img id="club_info_headImg" src="">
+							<div id="club_info_text">
+								<p id="club_info_name">校园大墙</p>
+								<p id="club_info_intro">hgjhgjh</p>
+							</div>
+						</div>
+					</div>
+
+					<div id="club_function">
+						<p id="club_function_title">功能选择</p>
+						<img src="../img/chat123.png" onclick="">
+						<img src="../img/topic.png" onclick="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</content>
+</body>
+</html>

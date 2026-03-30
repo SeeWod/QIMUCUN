@@ -1,0 +1,75 @@
+/* chatList 模块*/
+#chatList{
+  display:block;
+	list-style-type: none;
+
+	overflow-y: scroll;
+}
+
+.leftBar,.rightBar{
+	display: flex;
+	align-items: flex-start;
+	max-width: 75%;
+  position: relative;
+/*	background: #656935;*/
+}
+#chatList .M_head{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 2rem;
+	border: 2px solid #bcbcbc;
+}
+#chatList .M_text{
+	margin: 0px 5px;
+	max-width: calc(100% - 3rem);
+}
+#chatList .M_name{
+  font-weight: bold;
+	font-size: 1.2rem;
+}
+#chatList .M_time{
+	margin: 0px 5px;
+	font-size: 1rem;
+	color: #999999;
+}
+#chatList .textHead{
+	font-family: xiaohei;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: flex-end;
+}
+#chatList .M_content{
+	color: #555555;
+	font-family: zhengwen;
+	word-spacing: 2px;
+	font-weight: normal;
+  opacity:0.5;
+
+ 	margin: 5px 0px;
+	font-size: 1.2rem;
+  text-align: left;
+}
+
+.leftBar{
+  left:25px;
+  margin: 25px 0px 25px 0px;
+	justify-content: left;
+}
+.leftBar *{
+	justify-content: flex-start;
+}
+.leftBar .M_content{
+  float: left;
+}
+
+.rightBar{
+  left:22.5%;
+  margin: 25px 0px 25px 0px;
+	justify-content: flex-end;
+}
+.rightBar *{
+	justify-content: flex-end;
+}
+.rightBar .M_content{
+  float: right;
+}

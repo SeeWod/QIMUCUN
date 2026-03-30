@@ -1,0 +1,359 @@
+body{
+	background: #39add8;
+}
+content{
+/*	height: 100%;*/
+	position: relative;
+}
+#main_part{
+	position: relative;
+	display: flex;
+	background: #ffff;
+}
+
+/*#main_part #record{
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #586175;
+}*/
+#main_part #navigation{
+	padding:5rem 0rem 0px 0px;
+	width: 25rem;
+/*	background: #563781;*/
+	display:flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+#main_part #navigation li{
+	margin:0.25rem 2rem;
+	background:#ffffff;
+	width:17rem;
+	border-radius: 1.2rem;
+}
+#main_part #navigation li:hover{
+	box-shadow: 0px 0px 10px rgb(0,0,0,0.25);
+}
+#main_part #navigation div{
+	margin: 1rem 2rem;
+	display: flex;
+	width: 15rem;
+	flex-wrap: wrap;
+	align-items: center;
+/*	background: #816781;*/
+}
+#main_part #navigation li div img{
+	height:2.5rem;
+	/*text-shadow: 5px 5px 2px rgb(0,0,0,1);*/
+/*	background: #563781;*/
+}
+#main_part #navigation div h1{
+	margin:0px 1rem;
+	height:3rem;
+	width:7.5rem;
+/*	background: #894562;*/
+	font-size: 1.8rem;
+}
+#main_part #navigation p{
+	margin: 0rem 2rem 2rem 2rem;
+	wdith:16rem;
+	font-size: 1rem;
+	font-family: heiti2;
+	opacity: 0.8;
+/*	background:#789456;*/
+}
+
+#content{
+	margin:5rem 5rem 10rem 0px ;
+	width:calc(100% - 30rem);
+	height:calc(100% - 15rem);
+	position:relative;
+/*	background:#193756;;*/
+}
+/*-------------------------------------------------------------------mail--------------------------------------------------------*/
+#mail{
+/*	display:none;*/
+	width: calc(100% - 2px);
+	height:calc(100% - 2px);
+	border:1px dashed rgb(0,0,0,0.1);
+	position: relative;
+/*	background: #563521;*/
+}
+#mail h1{
+	margin: 4rem auto;
+	text-align: center;
+	font-size: 2rem;
+	height: 3rem;
+/*	background: #461873;*/
+
+}
+#mail #envelop{
+	margin: 0px auto;
+	width: 50rem;
+	height: calc(43rem + calc(100% - 43rem - 11rem)/2 - 3rem);
+/*	min-height: 54rem;*/
+/*	background: #856147;*/
+	position: absolute;
+	left:calc(50% - 25rem);
+	top: 11rem;
+	transition: 1s;
+	z-index:2;
+}
+#mail #envelop > div{
+/*	top: -50px;*/
+	margin: 0px auto;
+	width: 50rem;
+	height: 100%;
+/*	background: #864293;*/
+	background-image: url("../img/mailBox/bottom.png");
+	background-size: 50rem;
+	background-repeat: no-repeat;
+	transition: 1s;
+}
+#mail #envelop > div:after{
+	pointer-events: none;
+	/*鼠标穿透*/
+/*	display: none;*/
+	content: "";
+	width: 50rem;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+/*	background: #896293;*/
+	background-image: url("../img/mailBox/surface.png");
+	background-size: 50rem;
+	background-repeat: no-repeat;
+	transition: 1s;
+}
+#mail #envelop form{
+/*	display: none;*/
+	position: relative;
+	top: 20rem;
+	padding: 2rem 1.5rem;
+	margin: 0px auto;
+	width: calc(86% - 2.5rem);
+	height: 17rem;
+	background: #ffff;
+/*	background: #f6f6f6;*/
+/*box-shadow: 1px 1px 20px rgb(0,0,0,0.2);*/
+	transition: 1s;
+}
+#mail #envelop:hover{
+	top:4rem;
+	height: 100%;
+}
+#mail #envelop:hover form{
+	top: 0px;
+	height: 42rem;
+	box-shadow: 1px 1px 20px rgb(0,0,0,0.2);
+}
+#mail #envelop:hover form{
+	top: 0px;
+	height: 42rem;
+	box-shadow: 1px 1px 20px rgb(0,0,0,0.2);
+}
+/*#mail #envelop:hover button{
+	opacity: 0;
+}*/
+#mail #envelop:hover > div{
+/*	margin: 10rem auto 0px;*/
+	background-position: center 10rem;
+	height: calc(100% - 6rem);
+}
+#mail #envelop:hover > div:after{
+/*		display: none;*/
+/*	margin: 10rem auto 0px;*/
+	background-position: center 10rem;
+	height: 100%;
+}
+#mail button{
+	display: block;
+	text-align: center;
+	margin: 1rem auto;
+	font-family: heiti;
+	font-size: 2rem;
+	width: 12.5rem;
+	height: 4rem;
+	color: #ffff;
+	background: #39add8;
+	border: none;
+	transition: 1s;
+	position: absolute;
+	bottom:1rem;
+	left:calc(50% - 6.25rem);
+}
+#mail button:hover{
+	background: #39a888;
+}
+#hello{
+	font-size: 2rem;
+	font-weight: bolder;
+	color: #6c6c6c;
+}
+#hello2{
+	font-size: 1.5rem;
+	font-weight: bolder;
+	color: #6c6c6c;
+	opacity: 0.5;
+}
+#eContent{
+	border: 2px solid rgb(108,108,108,0.5);
+	border-radius: 0px;
+	padding: 1rem;
+	width: calc(100% - 2rem);
+	margin: 1.5px auto;
+	height: calc(100% - 6rem);
+
+	font-size: 1rem;
+/*	font-weight: bold;*/
+	opacity: 0.5;
+}
+
+#eContent:focus{
+	outline: none;
+}
+/*-------------------------------------------------------------------customer--------------------------------------------------------*/
+#customer{
+	display:none;
+	position:absolute;
+	width:calc(100% - 1rem);
+	height:calc(100% - 1rem);
+	border-radius: 1rem;
+	border:0.5rem solid #ffffff;
+	box-shadow: 0px 0px 10px rgb(0,0,0,0.1);
+	background:#f8f8f8;
+}
+#chatList{
+	margin:1rem 0px;
+	height: calc(100% - 10rem);
+	width:calc(100% - 4.5rem);
+	padding:0px 2rem;
+}
+#chatList::-webkit-scrollbar{
+/*	background:#f8f8f8;*/
+	width:0.5rem;
+}
+#chatList::-webkit-scrollbar-thumb{
+	background:#ffffff;
+/*	margin:0px 0.25rem;*/
+	width:0.5rem;
+/*	border-radius: 0.5rem;*/
+}
+.sendingModule{
+/*	align-items: center;*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #f6f6f6;
+	height: 8rem;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	border-top: 2px solid rgb(0,0,0,0.02);
+
+	border-radius: 0px;
+}
+.sendingModule input{
+	border: none;
+	outline: none;
+	background: transparent;
+}
+.sendingModule input[type="text"]{
+	text-indent: 3rem;
+	font-size: 1.5rem;
+	color: rgb(0,0,0,0.5);
+/*	background: #680034;*/
+	min-height: 3rem;
+	width: 90%;
+}
+.sendingModule input[type="button"]{
+	margin: 0px 25px;
+	width: 40px;
+	height: 40px;
+	font-size: 1.5rem;
+	color: #999999;
+
+
+	background-image: url(../img/main/send.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.sendingModule input::placeholder{
+	color: rgb(0,0,0,0.2);
+}
+/*.sendingModule input[type="button"]:hover{
+	background: #efefef;
+}*/
+/*-------------------------------------------------------------------cooperate--------------------------------------------------------*/
+#cooperate{
+	display:none;
+	position:absolute;
+	width:calc(100% - 1rem);
+	height:calc(100% - 1rem);
+	border-radius: 0rem;
+	border:0.5rem solid #ffffff;
+	box-shadow: 0px 0px 10px rgb(0,0,0,0.1);
+	background:#f8f8f8;
+
+
+}
+#cooperate > div{
+	margin:3rem;
+	width:calc(100% - 6rem);
+	height:calc(50% - 6rem);
+	border:1px solid rgb(0,0,0,0.1);
+	position:relative;
+	border-radius: 1rem;
+}
+#cooperate h5{
+	height:2rem;
+	line-height: 2rem;
+	text-indent:1rem;
+	border-radius: 0rem;
+	margin:2rem 3rem;
+	font-size: 1.5rem;
+	font-weight: lighter;
+	display:flex;
+}
+span{
+	line-height:2rem;
+	height:2rem;
+}
+.tag{
+	height:2rem;
+	width:0.75rem;
+	border-radius:0.4rem;
+}
+#cooperate div:nth-child(1) .tag{
+	background:#e24a4a;
+}
+#cooperate div:nth-child(2) .tag{
+	background:#0069cb;
+}
+#cooperate ul{
+	list-style-type:circle;
+/*	background:#195643;*/
+	margin: 0rem 4.5rem;
+
+}
+#cooperate li{
+	margin:0.5rem 0px;
+	height:1.5rem;
+	font-size: 1.2rem;
+}
+#cooperate p{
+	opacity: 0.75;
+	position:absolute;
+	right:2rem;
+	bottom:1rem;
+	height:2rem;
+	line-height:2rem;
+	text-indent: 3rem;
+	font-size:1.5rem;
+/*	font-weight: bolder;*/
+	background-image:url(../img/mailBox/wechat.png);
+	background-size:2rem 2rem;
+	background-repeat: no-repeat;
+	background-position: 0px center;
+}

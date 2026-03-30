@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+  	<meta name="description" content="厦门理工学院二手信息发布平台">
+  	<meta name="keywords" content="大学二手物品 厦门理工学院 跳蚤市场 学生物品交易中心 大四卖货网站">
+	<title>七木村学生事务所</title>
+	<script>
+		//自适应js更换页面 手机端 与pc端
+	    function reDirect(){
+	    	if(window.innerWidth < 500){
+	    		//手机端 一般标准像素 都在500以下
+	    		window.location.pathname="development/html_phone/transaction_home.html";
+	    	}else{
+	    		//电脑端
+	    		window.location.pathname="development/html/main.html";
+	    	}
+	    }
+
+	    function mainTain(){
+	    	if(window.innerWidth < 500){
+	    		//手机端 一般标准像素 都在500以下
+	    		window.location.pathname="maintain/main_phone.html";
+	    	}else{
+	    		//电脑端
+	    		window.location.pathname="maintain/main_pc.html";
+	    	}
+
+	    }
+  	</script>
+</head>
+<body onload="reDirect()">
+</body>
+</html>

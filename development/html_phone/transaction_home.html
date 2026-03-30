@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  	<meta name="description" content="厦门理工学院二手信息发布平台">
+  	<meta name="keywords" content="大学二手物品 厦门理工学院 跳蚤市场 学生物品交易中心 大四卖货网站">
+
+	<title>七木村闲置网站</title>
+	<link rel="stylesheet" type="text/css" href="../css_phone/transaction_common.css">
+	<link rel="stylesheet" type="text/css" href="../css_phone/transaction_home.css">
+	<link rel="stylesheet" type="text/css" href="../css_phone/frame.css">
+	<link rel="stylesheet" type="text/css" href="../css/font.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.css">
+	<link rel="stylesheet" type="text/css" href="../css_phone/cropper-self_phone.css">
+
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/functionLibrary.js"></script>
+	<script src="../js/frame.js"></script>
+	<script src="../js_phone/transaction_common.js"></script>
+  <script src="../js_phone/transaction_home.js"></script>
+	<script src="../js/cropper-self.js"></script>
+  	<script src="../js/initial.js"></script>
+
+</head>
+<body>
+	<content>
+		<div id="loadingPage">
+       <img src="http://i.giphy.com/3og0ISeflb7vrNzy2A.gif">
+       <p>加载中· · ·</p>
+		</div>
+		<div id="LP_main">
+			<p>校园 - 交易中心</p>
+			<ul>
+				<li onclick="login_Visiter()">游&nbsp客</li>
+				<li onclick="LP_page_phone('LP_login')">登&nbsp录</li>
+				<li onclick="LP_page_phone('LP_register')">注&nbsp册</li>
+			</ul>
+		</div>
+
+		<div id="LP_login">
+			<button onclick="LP_page_phone('LP_main')">返回</button>
+			<div id="LP_login_wrap">
+				<button id="LP_register_back" onclick="LP_page_phone('LP_main')"></button>
+				<form>
+					<input type="text" placeholder="id" id="login_U_id">
+					<input type="password" placeholder="密码" id="login_U_password">
+					<p id="LPL_Cpassword" onclick="LP_page_phone('LP_changePassword')">忘记密码?</p>
+					<br>
+          <br>
+          <br>
+					<input type="button" value="登&nbsp &nbsp &nbsp录" onclick="login(false)">
+					<p id="d"><span>——————</span><span>——————</span></p>
+					<p id="LPL_return"><!--密码错误--></p>
+				</form>
+				<p><span onclick="login_Visiter()">游客</span><span>|</span><span onclick="LP_page_phone('LP_register')">注册</span></p>
+			</div>
+		</div>
+
+		<div id="LP_cLogin">
+			<button onclick="LP_page_phone('main')">返回</button>
+			<div id="LP_cLogin_wrap">
+				<h3>账 号 管 理</h3>
+				<div id="nowLogin">
+					<p><span>正 在 登 陆</span><span id = "headImgC" onclick="selectFile(this)"><input type="file" id = "headImgC" class = "hidFile" accept="image/*" onchange="copperImg(this,'newHeadImg')"></span></p>
+					<div id="nowLogin_wrap">
+						<div id="nowLogin_headImg"></div>
+						<div><p id="nowLogin_name">小小</p> <p id="nowLogin_id">2417802903</p></p>
+					</div>
+				</div>
+			</div>
+				<form>
+					<p>更 换 登 录</p>
+					<input type="text" placeholder="id" id="cLogin_U_id">
+					<input type="password" placeholder="密码" id="cLogin_U_password">
+					<p id="LPL_Cpassword" onclick="LP_page_phone('LP_changePassword')">忘记密码?</p>
+					<br>
+					<input type="button" value="更 换 登 录" onclick="cLogin()">
+					<p id="d"><span>——————</span><span>——————</span></p>
+					<p id="LPL_return"><!--密码错误--></p>
+				</form>
+				<p><span onclick="login_Visiter()">退出</span><span>|</span><span onclick="LP_page_phone('LP_register')">注册</span></p>
+			</div>
+		</div>
+
+		<div id="LP_register">
+			<button onclick="LP_page_phone('LP_main')">返回</button>
+			<div id="LP_register_wrap">	
+	 			<form>
+					<div>
+						<input type="text" placeholder="id" id="register_R_id">
+						<p>10位或11位数字(非0开头)</p>
+						<input type="text" placeholder="昵称" id="register_R_name">
+						<p>8位以下字符</p>
+						<input type="password" placeholder="密码" id="register_R_password">
+						<p>12位以下字符</p>
+						<input type="password" placeholder="确认密码" id="register_R_confirm">
+			            <select id="register_R_school">
+			              <option value="厦门理工学院">厦门理工学院</option>
+			              <!--<option value="saab">厦门软件</option>
+			              <option value="opel">晋中学院</option>
+			              <option value="audi">Audi</option>-->
+			            </select>
+						<!-- <p></p> -->
+						<input type="text" placeholder="手机号" id="register_R_phone">
+						<input type="button" value="注&nbsp &nbsp &nbsp册" onclick="register()">
+						<p id="d"><span>——————</span><span>——————</span></p>
+					</div>
+				</form>
+				<p id="LPL_remarks">
+						- 可以使用您的QQ、手机号作为ID,方便记忆<br>
+						- 同时为了确保您的账户安全,请不要使用现期的QQ密码<br>
+						- 如果您的密码忘记,手机号将用于密码找回
+				<p>
+			</div>
+		</div>
+
+		<div id="LP_changePassword">
+			<button onclick="LP_page_phone('LP_login')">返回</button>
+			<div id="LP_changePassword_wrap">	
+	 			<form>
+					<div>
+						<input type="text" placeholder="id" id="register_R_id">
+						<input type="password" placeholder="密码" id="register_R_password">
+						<p>12位以下字符</p>
+						<input type="password" placeholder="确认密码" id="register_R_confirm">
+						<!-- <p></p> -->
+						<input type="text" placeholder="手机号" id="register_R_phone">
+						<input type="button" value="修&nbsp &nbsp &nbsp改" onclick="changePassword()">
+						<p id="d"><span>——————</span><span>——————</span></p>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="detailPage">
+			<button onclick="closeDetailPage()">返回</button>
+			<div id="detail_content">
+				<div id="detail_publishInfo">
+					<img id="detail_publisherHeadImg" src="xx">
+					<div>
+						<div id="detail_publisher">xx</div>
+						<div id="detail_time">xx</div>
+					</div>
+					<p><b>联系:</b><span id="detail_contact">xx</span></p>
+				</div>
+				<div id="detail_texts">
+					<p id="detail_id">xx</p>
+					<p id="detail_name"><span id="detail_price">XX</span>&nbsp &nbsp<span id="detail_name2">xx</span></p>
+					<p id="detail_long">xx</p>
+				</div>
+				<ul id="detail_imgs">
+<!--
+					<img src="../data/goods/srcImg/44_first.jpg">
+					<img src="../data/goods/srcImg/45_first.jpg">
+					<img src="../data/goods/srcImg/43_first.jpg">
+					<img src="../data/goods/srcImg/41_first.jpg">
+-->
+				</ul>
+			</div>
+
+			<div id="detailPage_navigation">
+				<span id ="detailPage_collect" onclick="goods_Record()"></span>
+				<span id ="detailPage_contact" onclick="openContactView()"></span>
+			</div>
+		</div>
+
+		<div id="contactView">
+			<button onclick="closeContactView()">返回</button>
+			<ul id="chatList" onscroll="getHistoryMessage(this)">
+<!--
+				<li class="leftBar">
+					<img class="M_head" src = "../img/head.png">
+					<div class="M_text">
+						<div class="textHead">
+							<p class="M_name">肖</p>
+							<p class="M_time">12：31</p>
+						</div>
+						<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+					</div>
+				</li>
+			  	<li class="leftBar">
+					<img class="M_head" src = "../img/head.png">
+					<div class="M_text">
+						<div class="textHead">
+							<p class="M_name">肖</p>
+							<p class="M_time">12：31</p>
+						</div>
+						<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+					</div>
+				</li>
+              	<li class="leftBar">
+					<img class="M_head" src = "../img/head.png">
+					<div class="M_text">
+						<div class="textHead">
+							<p class="M_name">肖</p>
+							<p class="M_time">12：31</p>
+						</div>
+						<p class="M_content">都发生了卡刷卡打发阿道夫就爱上对方好垃圾啊士大夫来说阿斯蒂芬哈桑教授副教授得分后卫i欺骗了快乐家族可能士大夫就ask发</p>
+					</div>
+				</li>
+-->
+			</ul>
+			<form class="sendingModule">
+				<input type="text" id="chatMessage" placeholder="输入寄出消息">
+				<input type="button" onclick="gMessageToS()">
+			</form>
+		</div>
+
+
+		<div id="addViewPage">
+			<ul>
+				<li onclick="openAddView_setDealType('sell')">
+					<img src="../img/image_phone/sell_icon.png">
+					<div>
+						<p>卖闲置</p>
+						<p>闲置物品，寻找新的主人！</p>
+					</div>
+				</li>
+        
+				<li onclick="openAddView_setDealType('buy')">
+					<img src="../img/image_phone/buy_icon.png">
+					<div>
+						<p>收宝贝</p>
+						<p>看得见，你的需要！</p>
+					</div>
+				</li>
+
+			</ul>
+
+			<button onclick="addViewPage_close_phone()"></button>
+		</div>
+   
+		<form id="publish_FillPage">
+			<div id="publish_FillPage_up"><span onclick="closeAddView()">返回</span><span onclick="goodPublish()">发布</span></div>
+      
+      <div id="publish_FillPage_contentPart">
+			<textarea id="G_long" placeholder="商品描述：前20字将作为商品简介" oninput="textarea_ChangeHeight(this)"></textarea>
+			<div id="publish_FillPage_imgPart">
+				<div id="mainImgB" onclick="selectFile(this)"><input type="file" id = "mainPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'main')"></div>
+				<ul id="publish_FillPage_imgs">
+					<li id = "firstImgB" onclick="selectFile(this)"><input type="file" id = "firstPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'first')"></li>
+					<li id = "secondImgB" onclick="selectFile(this)"><input type="file" id = "secondPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'second')"></li>
+					<li id = "thirdImgB" onclick="selectFile(this)"><input type="file" id = "thirdPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'third')"></li>
+					<li id = "fourthImgB" onclick="selectFile(this)"><input type="file" id = "fourthPicture" class = "hidFile" accept="image/*" onchange="copperImg(this,'fourth')"></li>
+				</ul>
+			</div>
+			<ul id="publish_FillPage_text">
+				<li>名称<input type="text" placeholder="必填 35字以内" id="G_name"></li>
+				<li>价格<input type="text" placeholder="必填 10字以内" id="G_price"></li>
+				<li>联系人<input type="text" placeholder="必填" id="G_contact"></li>
+				<li>类型
+					<ul id="addViewTags">
+						<li onclick="labelCheck(this)">
+							<input  type="checkbox" name="gTag" value="书籍教材" id="书籍教材">
+							<label for="书籍教材"></label>书籍教材
+						</li>
+			  			<li onclick="labelCheck(this)">
+			  				<input  type="checkbox" name="gTag" value="学习资料" id="学习资料">
+			  				<label for="学习资料"></label>学习资料
+			  			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="数码产品" id="数码产品">
+			 				<label for="数码产品"></label>数码产品
+			 			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="生活百货" id="生活百货">
+			 				<label for="生活百货"></label>生活百货
+			 			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="运动装备" id="运动装备">
+			 				<label for="运动装备"></label>运动装备
+			 			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="食品饮料" id="食品饮料">
+			 				<label for="食品饮料"></label>食品饮料
+			 			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="文具用品" id="文具用品">
+			 				<label for="文具用品"></label>文具用品
+			 			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="电器家具" id="电器家具">
+			 				<label for="电器家具"></label>电器家具
+			 			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="美妆护肤" id="美妆护肤">
+			 				<label for="美妆护肤"></label>美妆护肤
+			 			</li>
+			 			<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="医护药品" id="医护药品">
+			 				<label for="医护药品"></label>医护药品
+			 			</li>
+		 			  	<li onclick="labelCheck(this)">
+			 				<input  type="checkbox" name="gTag" value="服饰鞋帽" id="服饰鞋帽">
+			 				<label for="服饰鞋帽"></label>服饰鞋帽
+			 			</li>
+					</ul>
+				</li>
+<!--				<li>HELP：<p><span>· 点击类型 以选择</span><br><span></span></p></li> -->
+			</ul>
+      </div>
+		</form>
+   
+   			<div id="cropper_module">
+					<div id="cropper_closeB" onclick="cropperMclose()">返回</div>
+					<div id="cropper_ceterPart">
+						<div id="cropper_wrap">
+							<img id="cropperImg" src="">
+						</div>
+					</div>
+					<div id="cropper_footPart">
+						<ul id="cropper_buttons">
+							<li onclick="cropperOperate('anticlockwise')"></li>
+							<li onclick="cropperOperate('clockwise')"></li>
+							<li onclick="cropperOperate('reset')"></li>
+						</ul>
+						<div id="finishC" onclick="cropperEnd()">完成裁剪</div>
+					</div>
+			</div>
+
+		<div id="left_part" onmouseover="changeInfo()" class="hidden_U">
+			<div id="info" class="hidden_U">
+    		<p id="logo">七木村小站</p>
+				<button id="U_headImg" onclick="headImgLogin_phone()"></button>
+				<div id="U_id" class="hidden_U">1000000000</div>
+				<div id="U_name" class="hidden_U">nobody</div>
+			</div>
+      <button id="feedbackB" onclick="feedbackPage_open()"></button>
+		</div>
+
+		<div id="navigation">
+			<div id ="openAddViewB" onclick="addViewPage_open_phone()"></div>
+			<ul>
+					<li id ="homePageB" onclick="goHome_Self('home')"> </li>
+					<li id ="selfPageB" onclick="goHome_Self('self')"> </li>
+			</ul>
+		</div>
+
+		<div id="main_part">
+			<div id="up">
+         <button id="station">厦门理工学院</button>
+
+				<form id="search" onsubmit="return false;">
+					<input type="text" id="searchText" onkeydown="keydown(event)">
+				</form>
+
+				<div id="switch">
+					<button class = "switch_" onclick="dealChange('sell')">出</button>
+					<button class = "switch_" onclick="dealChange('buy')">收</button>
+				</div>
+			</div>
+
+			<div id="down">
+				<div id="tag">
+					<div id="tag_wrap">
+						<ul id="tags">
+							<!-- 全部物品预设 -->
+							<li onclick="filterWidthTag(this)"><p>全部物品</p></li>
+							<li onclick="filterWidthTag(this)"><p>书籍教材</p></li>
+							<li onclick="filterWidthTag(this)"><p>学习资料</p></li>
+							<li onclick="filterWidthTag(this)"><p>文具用品</p></li>
+							<li onclick="filterWidthTag(this)"><p>数码产品</p></li>
+							<li onclick="filterWidthTag(this)"><p>生活百货</p></li>
+							<li onclick="filterWidthTag(this)"><p>运动装备</p></li>
+							<li onclick="filterWidthTag(this)"><p>美妆护肤</p></li>
+							<li onclick="filterWidthTag(this)"><p>食品饮料</p></li>
+							<li onclick="filterWidthTag(this)"><p>医护药品</p></li>
+							<li onclick="filterWidthTag(this)"><p>电器家具</p></li>
+							<li onclick="filterWidthTag(this)"><p>服饰鞋帽</p></li>
+						</ul>
+						<div id="decorate"></div>
+					</div>
+          <div id= "sortB" onclick="setSort()">按时间</div>
+				</div>
+        
+				<div id="goods">
+					<div id="goodView">
+               			<ul id="goodsList" onscroll="Get_nextPageGoods(this)"> 
+<!--
+									<li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/35_main.jpg" width="122px">
+											<p class="good_name">云计算<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+									<li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/112_main.jpg" width="122px">
+											<p class="good_name">云计算大师傅撒撒旦发生<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+									<li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/35_main.jpg" width="122px">
+											<p class="good_name">云计算<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+									<li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/112_main.jpg" width="122px">
+											<p class="good_name">云计算大师傅撒撒旦发生<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+					        <li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/35_main.jpg" width="122px">
+											<p class="good_name">云计算<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+									<li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/112_main.jpg" width="122px">
+											<p class="good_name">云计算大师傅撒撒旦发生<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+									<li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/35_main.jpg" width="122px">
+											<p class="good_name">云计算<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+									<li id="G_id" class="goodsli" onclick="getMore(this)">
+										<div>
+											<img src="../data/goods/croImg/112_main.jpg" width="122px">
+											<p class="good_name">云计算大师傅撒撒旦发生<span class="good_price">8￥</span></p>
+											<p class="good_short">得来啊手动阀哈伦裤结束的时间啊撒旦解放哈世界的繁华...</p>
+										</div>
+									</li>
+-->
+					  	</ul>
+         			</div>
+				</div>
+				<!-- goods -->
+			</div>
+<!--<div id="helpView"></div> -->
+		</div>
+	</content>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/*总框架响应式布局*/
+/*13寸电脑 2160*1440*/
+@media only screen and (min-width: 800px) and (max-width: 1200px){
+	content{
+		height: 920px;
+	}
+}
+@media only screen and (min-width: 1200px) and (max-width: 1600px){
+  /* 1440 * 960 */
+  html{
+    font-size:10px;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 2000px){
+  /* 1920 * 1080 */
+  html{
+    font-size:12px;
+  }
+}
+/* 还要同时设置高度区域 要不然 打开控制栏就变了*/
+
+
+/*自定义预设*/
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+  background-color:#ffffff;
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+button{
+	border: none;
+}
+input[type="button"]{
+	border: none;
+}
+input:focus{
+	outline:none;
+}
+
+/*总体布局*/
+content{
+	width: 100%;
+	height: 920px;
+  /*无效会被js更改*/
+  display:block;
+}
+#main_part{
+	width: 100%;
+	position: relative;
+/*relative absolute都行,因为这个是最基础的 其他都得是absolute*/
+}

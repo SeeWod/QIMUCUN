@@ -1,0 +1,207 @@
+/*goodsList*/
+#goods #goodView{
+	margin: 0px auto;
+	height: 90%;
+	width: calc(100% - 4rem);
+/*	background: #657815;*/
+}
+#goods #goodsList{
+	margin: 0px auto;
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+
+	overflow-y: hidden;
+	overflow-x: hidden;
+/*	background: #657815; */
+}
+
+/*detail_View*/
+#detailView{
+	display: none;
+	/*jquery设置为flex*/
+	top: calc(50% - 21rem);
+	left: calc(50% - 30rem);
+	width: 59rem;
+	height: 25rem;
+	padding: 3rem 3rem 6rem 3rem;
+
+	position: absolute;
+
+	box-shadow: 0px 0px 1.5rem rgb(0,0,0,0.5);
+	background: #f2f4f1;
+}
+#detailView *{
+	border-radius: 0px;
+}
+#detailView #detail_left{
+	text-align: center;
+	padding: 1.5rem;
+	width: 31rem;
+	height: 21rem;
+	background: #ffff;
+  overflow:hidden;
+/*	border: 15px solid #ffff;*/
+}
+#detailView #detail_left img{
+  pointer-events:none;
+
+
+  position:relative;
+	height: 20rem;
+/*	border: 15px solid #ffff;*/
+}
+#detailView #detail_right{
+	padding: 1.5rem;
+	margin: 0px 0px 0px 1.5rem;
+	width: 19rem;
+	height: 21rem;
+	background: #ffff;
+	position: relative;
+/*	border: 15px solid #ffff;*/
+}
+#detailView #detail_right #detail_id{
+	display: none;
+}
+#detailView #detail_right #detail_name{
+	width: 100%;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+#detailView #detail_right #detail_price{
+	color: #ff9f28;
+}
+#detailView #detail_right #detail_texts{
+	display: flex;
+	flex-wrap: wrap;
+
+	width: 100%;
+	height: 5rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+/*	background: #195613;*/
+}
+#detailView #detail_right #detail_texts li{
+	margin: 0.5rem 1.5rem 0.5rem 0px;
+	font-size: 1rem;
+	font-weight: bold;
+/*	background: #195613;*/
+}
+#detailView #detail_right #detail_texts li span{
+	margin: 0.5rem 0px 0.5rem 0.5rem;
+	font-weight: normal;
+	opacity: 0.75;
+}
+#detailView #detail_right #detail_imgs{
+	display: flex;
+	overflow-x: scroll;
+	position:absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 22rem;
+/*	height: 100px;*/
+	background: #f2f4f1;
+}
+#detailView #detail_right #detail_imgs img{
+/*	padding: 0px;*/
+/*	height: 100px;*/
+/*	margin: 0px 0px 0px 5px;*/
+}
+#detailView #detail_long{
+	border: 1.5rem solid #8c837c;
+	border-right: 0px;
+	padding: 0px 1.5rem 0px 0px ;
+	border-radius: 0px 1rem 1rem 0px;
+	left: 65rem;
+	position: absolute;
+	width: 15rem;
+	height: 21rem;
+	background: #8c837c;
+	color: #ffff;
+	overflow-y: auto;
+}
+#detailView #detail_long::-webkit-scrollbar{
+	background-color: #8c837c;
+	width: 3px;
+}
+#detailView #detail_long::-webkit-scrollbar-thumb{
+	background: #3d3936;
+	width: 2px;
+	border-radius: 2px;
+}
+
+#detailView #detail_close{
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background-image: url("../img/close2.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0.25;
+/*	background: #785613;*/
+}
+#detailView #detail_close:hover{
+	opacity: 0.75;
+}
+#detailView #detail_addSelf{
+	width: 8rem;
+	height: 4rem;
+	bottom: -1rem;
+	left: -1rem;
+
+	position: absolute;
+	background: #ebb34d;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #ffff;
+	letter-spacing: 3px;
+	box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+#detailView #detail_pre{
+	transition: 0.5s;
+	width: 4rem;
+	height: 4rem;
+	bottom: -1rem;
+	right: 3rem;
+
+	background-image: url("../img/arrow.png");
+	background-repeat: no-repeat;
+	background-size: 2rem 2rem;
+	background-position: center;
+	transform: rotate(180deg);
+	position: absolute;
+	filter: invert(1);
+	opacity: 0.5;
+/*	background: #785613;*/
+/*box-shadow: 0px 0px 10px rgb(200,200,200,1);*/
+}
+#detailView #detail_next{
+	transition: 0.5s;
+	width: 4rem;
+	height: 4rem;
+
+	bottom: -1rem;
+	right: -1rem;
+	background: #ebb34d;
+	background-image: url("../img/arrow.png");
+	background-repeat: no-repeat;
+	background-size: 2rem 2rem;
+	background-position: center;
+	position: absolute;
+	box-shadow: 0px 0px 1rem rgb(0,0,0,0.2);
+	opacity: 0.8;
+}
+#detailView #detail_next:hover,#detailView  #detail_pre:hover{
+	opacity: 1;
+}

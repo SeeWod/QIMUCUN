@@ -1,0 +1,113 @@
+#popPage{
+/*index为2，仅限单页面弹出的用*/
+	display:none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height:100%;
+	z-index: 10;
+/*	display: flex;*/
+	align-items: center;
+	justify-content: center;
+	background: rgb(0,0,0,0.6);
+}
+/*.popPage_wrap{
+
+}*/
+.pop_bar{
+	margin:1rem 1rem;
+	width:calc(100% - 2rem);
+	height:2rem;
+	font-size:1.5rem;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.pop_bar span:nth-child(1){
+	text-indent: 2.5rem;
+
+	background-repeat: no-repeat;
+	background-size:2rem 2rem;
+	background-position: 0px center;
+}
+.pop_bar span:nth-child(2):hover{
+	text-shadow: 0px 0px 2px rgb(0,0,0);
+}
+.pop_frame{
+	margin:0rem 1rem 1rem 1rem;
+	height:calc(100% - 5rem - 2px);
+	border:1px dashed rgb(0,0,0,0.2);
+	border-radius: 0.5rem;
+	position:relative;
+}
+.pop_col{
+/*	width:75%;*/
+	margin:2rem auto 0px;
+	height:2.5rem;
+	display: flex;
+	justify-content: center;
+	font-size: 1.5rem;
+/*	border:1px solid rgb(0,0,0);*/
+}
+.pop_col input[type='text']{
+	text-indent: 1rem;
+	margin:0px 1rem;
+/*	width:32rem;宽度自己设置*/
+	height:2.5rem;
+	font-size:1.2rem;
+	background: #cccccc;
+	border:none;
+	outline:none;
+}
+.pop_submit{
+	width:8rem;
+	height:3rem;
+	font-size:1.5rem;
+	background: #feb22e;
+	color:#ffffff;
+	font-weight: bolder;
+
+	position:absolute;
+	bottom: 1.5rem;
+	left:calc(50% - 4rem);
+}
+.pop_submit:hover{
+	filter: brightness(1.1);
+}
+
+
+
+.scroll_ul::-webkit-scrollbar{
+	width:1rem;
+	background:#ffffff;
+}
+.scroll_ul::-webkit-scrollbar-thumb{
+	width:1rem;
+	border-radius: 0rem;
+	background:#ffffff;
+	border: 1px solid rgb(0,0,0,0.1);
+}
+.scroll_ul_row::-webkit-scrollbar{
+	height:1rem;
+	background:#ffffff;
+}
+.scroll_ul_row::-webkit-scrollbar-thumb{
+	height:1rem;
+	border-radius: 0rem;
+	background:#ffffff;
+	border: 1px solid rgb(0,0,0,0.1);
+}
+.littleB{
+	line-height: 2rem;
+	text-align: center;
+	text-indent:0px;
+	margin:0px 0px 0px 1rem;
+	display:inline-block;
+	width:2rem;
+	height:2rem;
+	background:#eeeeee;
+}
+.littleB:hover{
+	background-color:#bbbbbb;
+}

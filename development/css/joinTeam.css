@@ -1,0 +1,268 @@
+*{
+	transition: 0.5s;
+}
+body{
+	background: #6bc18d;
+}
+#main_part{
+	background: #ffff;
+	position: relative;
+/*	width: 100%;
+	height: 100%;*/
+}
+content{
+	height: 100%;
+	position: relative;
+
+	min-width: 1200px;
+}
+content > a{
+	position: absolute;
+	width: 50px;
+	top: calc(50% - 25px);
+	left: calc(200px - 25px + 0.5rem);
+}
+content > a img{
+	margin: 0px;
+	padding: 0px;
+	width: 50px;
+}
+#up{
+	padding: 2rem 4rem;
+	width: calc(100% - 8rem);
+	height: calc(100% - 50rem);
+/*	background: #783193;*/
+}
+#up h1{
+	text-indent: 2rem;
+	font-size: 1.5rem;
+	background-size:1.5rem 1.5rem;
+	background-position:0px center;
+	background-repeat:no-repeat;
+/*	background:#156498;*/
+}
+#outline_h1{
+	background-image: url(../img/joinTeam/outline.png);
+}
+#detail_h1{
+	background-image: url(../img/self/officer.png);
+}
+	
+#up textarea{
+	width:100%;
+/*	height:1rem;*/
+	text-indent: 2rem;
+	margin: 1rem 0px;
+	font-size: 1.2rem;
+	border: 0px;
+	outline:0px;
+	font-family: 微软雅黑;
+	background:transparent;
+	resize: none;
+/*	color: #83b3a3;*/
+}
+#up_buttons{
+	display:flex;
+	flex-direction: row-reverse;
+	height:5rem;
+	width:100%;
+/*	background:#196458;*/
+}
+#up_buttons span{
+	height:1.5rem;
+	visibility:hidden;
+	transition: 0s;
+}
+#up_buttons li{
+	display:flex;
+	justify-content: center;
+	align-items: flex-end;
+/*	vertical-align: bottom;*/
+	margin:0px 0.5rem;
+	width:4rem;
+	height:5rem;
+	background-size:2.5rem 2.5rem;
+	background-position:center 0.5rem;
+	background-repeat:no-repeat;
+	transition: 0s;
+}
+#up_buttons li:hover{
+	background-color:#eef1f6;
+}
+#up_buttons li:hover span{
+	visibility: visible;
+}
+#up_buttons li:nth-child(2){
+	background-image:url("../img/joinTeam/apply.png");
+	
+}
+#up_buttons li:nth-child(1){
+	background-image:url("../img/joinTeam/work.png");
+}
+
+
+
+#down{
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	height: 50rem;
+	display: flex;
+	align-items: center;
+/*	background: #003193;*/
+}
+#down ul{
+	margin: 4rem;
+	height:41.5rem;
+	width: calc(100% - 8rem);
+	list-style-type: none;
+	display: flex;
+	overflow-x:scroll;
+}
+#down ul li{
+	margin: 0px 5px;
+	width: calc(25% - 10px);
+	height: 40rem;
+	background: #9cc2b5;
+	flex-shrink:0;
+	position: relative;
+}
+#down ul li:hover{
+	box-shadow: 0px 0px 1rem rgb(0,0,0,0.2);
+	background: #83b3a3;	
+}
+#down ul li h5{
+	color:#FFFFFF;
+	height:2rem;
+	font-size: 2rem;
+	margin: 1.5rem 0px;
+	text-align: center;
+}
+#down ul li button{
+	background:#9cc2b5;
+	border:1px solid #ffffff;
+/*	border-radius: 0px;*/
+}
+#down ul li p{
+	font-weight: bold;
+	height:2rem;
+	margin:1rem 2rem;
+	color:#ffffff;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+#down ul li textarea{
+	text-indent: 2rem;
+	margin:0px 2rem;
+	color:#ffffff;
+	font-size: 1.2rem;
+	background: transparent;
+	resize: none;
+	outline: none;
+	border: none;
+	width: calc(100% - 4rem);
+	height:calc(100% - 15rem);
+}
+
+
+#applyPage{
+	margin:2rem;
+	width:calc(100% - 4rem);
+	height:calc(100% - 4rem);
+	position: absolute;
+	top:0px;
+	left:0px;
+	background:#ffffff;
+/*	display:block;*/
+	display:none;
+	z-index:2;
+}
+#applyPage > div:nth-child(2){
+	display:flex;
+}
+#applyPage_title{
+	background-image: url(../img/joinTeam/apply.png);
+	background-size:2rem 2rem;
+	background-position: 0px center;
+	background-repeat:no-repeat;
+}
+#applyPage_job,#applyPage_self{
+	margin:2rem 0px;
+	padding:0px 2rem;
+	height:calc(100% - 9rem);
+	width:calc(50% - 4rem - 1px);
+	border-left:1px dashed rgb(0,0,0,0.1);
+	border-radius: 0px;
+}
+.applyPage_col{
+	line-height: 2rem;
+	margin:0.5rem 0px 0px 0px;
+	width:100%;
+	height:2rem;
+	font-size:1.4rem;
+}
+.applyPage_col span{
+	display: inline-block;
+	text-align: right;
+	width:8rem;
+	height:2rem;
+	font-size:1.4rem;
+}
+.applyPage_col input{
+	border-radius: 0.25rem;
+	height:2rem;
+}
+.applyPage_col1{
+	margin:0.5rem 0px 0px 0px;
+	width:100%;
+	height:calc(100% - 13rem - 4rem);
+	font-size:1.4rem;
+}
+.applyPage_col1 span{
+	display: inline-block;
+	text-align: right;
+	width:8rem;
+	height:2rem;
+	font-size:1.4rem;
+}
+
+#applySelf_evaluation{
+	resize:none;
+	height:100%;
+}
+#applySelf_name,#applySelf_academy,#applySelf_major,#applySelf_contact,#applySelf_type,#applySelf_evaluation{
+	text-indent: 0.5rem;
+	width:calc(100% - 10rem);
+	background:#eeeeee;
+	outline: none;
+	border: none;
+	float:right;
+}
+#applyPage_job p{
+	height:2rem;
+/*	border-bottom:1px solid rgb(0,0,0,0.1);*/
+	width:100%;
+	text-align: left;
+	font-size: 1.5rem;
+	border-radius:0px;
+
+}
+
+#applyPage_job{
+	display: flex;
+	flex-direction: column;
+
+}
+#applyPage_job textarea{
+	height:calc(25% - 4rem);
+/*	overflow: visible;*/
+	margin:1.5rem 0px 0.5rem;
+	text-indent: 2rem;
+	width:100%;
+	text-align: left;
+	font-size: 1.2rem;
+	outline:none;
+	border:none;
+	resize:none;
+	font-family: 微软雅黑;
+}

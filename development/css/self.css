@@ -1,0 +1,300 @@
+@media screen and (max-width: 1200px){		/*小于1200px,left-part去掉*/
+    #left_part{
+    	display: none;
+    }
+    #main_part{
+    	width: 100%;
+    }
+}
+@media screen and (min-width: 1201px){		/*大于1200px,left-part去掉*/
+    #left_part{
+    	display: block;
+    }
+    #main_part{
+    	width: 90%;
+    }
+}
+body{
+/*	background: #6181bc;*/
+/*	background: #01847e;6dab86*/
+/*		background: #6dab86;*/
+/*	background:#5897c3;*/
+	background:#2a3050;
+/*	background:#7e2720;*/
+/*	background:#d0e4a9;*/
+/*background:#003152;*/
+}
+*{
+	border-radius: 0px;
+}
+#main_part{
+	position: relative;
+	background: #ffffff;
+}
+#up{
+	height:25%;
+	position: relative;
+	background:#ffffff;
+}
+#up #up_wrap{
+	z-index:2;
+	width:15rem;
+	height:15rem;
+	background-color: #ffffff;
+	position:absolute;
+	bottom:-2.5rem;
+	border-bottom:1px solid rgb(0,0,0,0.1);
+	border-radius: 10rem;
+	left:calc(50% - 7.5rem);
+	overflow: hidden;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+#up #up_wrap img{
+	border:1rem solid rgb(0,0,0,0.1);
+	width: 7.5rem;
+	height: 7.5rem;
+	border-radius: 5rem;
+/*	background-color: #498532;*/
+}
+#up #up_wrap img:hover{
+	opacity:0.75;
+	box-shadow: 0px 0px 10px rgb(0,0,0,0.5);
+}
+#headImgFile{
+	display:none;
+}
+#between{
+	position:relative;
+	height:65%;
+	border-top:1px solid rgb(0,0,0,0.1);
+	width:90%;
+	margin:0px auto;
+	border-radius: 0px;
+	display:flex;
+	justify-content: center;
+}
+#between > div{
+/*	background:#456129;*/
+	min-width:25rem;
+	margin:1rem 10rem;
+
+	text-align: center;
+}
+#between p{
+	font-size:2rem;
+	margin:0px 0px 2.5rem 0px;
+}
+#between ul{
+	text-align: left;
+}
+#between li{
+	margin:1rem 0px;
+	height:3rem;
+	display:flex;
+	align-items: center;
+	position: relative;
+}
+#between li:hover{
+	background:rgb(0,0,0,0.25);
+}
+#between li:hover #set{
+	visibility: visible;
+}
+#between li img:first-child{
+	margin:0px 0.5rem;
+	height:2rem;
+	width:2rem;
+}
+.t_head{
+	opacity: 0.75;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+.t_data{
+	margin:0px 0.5rem;
+	opacity: 0.75;
+	font-weight: lighter;
+	font-size:1.5rem;
+}
+#set{
+	margin:0px 1rem;
+	width:1rem;
+	height:1rem;
+	opacity:0.5;
+	position:absolute;
+	right:0px;
+	visibility:hidden;
+	transition: 0s;
+}
+
+
+#down{
+	height:10%;
+
+}
+
+#down{
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+#down img{
+	display:flex;
+	margin:0px 2.5rem;
+	height:3rem;
+	width:3rem;
+}
+/*------------------------------------------------------alter---------------------------------------------------*/
+#alter_wrap{
+	display:none;
+	width: 100%;
+	height:100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 7;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgb(0,0,0,0.6);
+}
+.alter_submit{
+	position:absolute;
+	bottom: 1.5rem;
+	left:calc(50% - 4rem);
+/*	display:none;*/
+	height:3rem;
+	width: 8rem;
+	background:#ffc939;
+	color:#ffffff;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+#alter_wrap span{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+/*	background:#194656;*/
+
+	font-size:1.5rem;
+	transition: 0s;
+}
+#alter_wrap input{
+	text-indent: 1rem;
+	width:20rem;
+	height:2.5rem;
+	background:#cccccc;
+/*	display: flex;
+	align-items: center;*/
+/*	background:#194656;*/
+border:none;
+outline:none;
+
+	font-size:1.2rem;
+	transition: 0s;
+}
+#alter_wrap datalist{
+	width:10rem;
+}
+
+#alter_campus,#alter_password,#alter_name,#alter_phone,#alter_headImg{
+	width:40rem;
+	height:30rem;
+	display:none;
+	background:#ffffff;
+}
+.alter_title{
+	text-indent: 2.5rem;
+	background-repeat: no-repeat;
+	background-size:2rem 2rem;
+	background-position: 0px center;
+	height:2rem;
+}
+.alter_close:hover{
+	font-weight: bold;
+	opacity: 0.75;
+}
+.alter_bar{
+	margin:1rem 1rem;
+	width:calc(100% - 2rem);
+	height:2rem;
+	display:flex;
+	justify-content: space-between;
+
+	align-items: center;
+}
+
+
+
+
+
+#alter_campus span:first-child{
+	background-image: url(../img/self/college.png);
+}
+#alter_password span:first-child{
+	background-image: url(../img/self/changePassword.png);
+}
+#alter_name span:first-child{
+	background-image: url(../img/self/name.png);
+}
+#alter_phone span:first-child{
+	background-image: url(../img/self/phone.png);
+}
+.alter_frame{
+	height:calc(100% - 3rem - 2px - 2rem);
+	margin:1rem;
+	border:1px dashed rgb(0,0,0,0.2);
+	border-radius: 0.5rem;
+	position:relative;
+}
+.alter_col{
+/*	width:75%;*/
+	margin:2rem auto 0px;
+	height:2.5rem;
+	display: flex;
+	justify-content: center;
+	font-size: 1.5rem;
+/*	border:1px solid rgb(0,0,0);*/
+}
+#colleges{
+	display:none;
+	overflow-y:scroll;
+	z-index: 2;
+	border-top:1px dashed rgb(0,0,0,0.2);
+	position:absolute;
+	width:95%;
+	bottom:0px;
+	height:calc(100% - 5rem);
+	left:2.5%;
+	border-radius: 0px;
+	background:#ffffff;
+	text-align: center;
+}
+#colleges li{
+/*	visibility: hidden;*/
+	display:none;
+	padding:0.5rem;
+	font-size:1.2rem;
+}
+#colleges li:hover{
+	background:#f6f6f6;
+}
+
+#closeCollegesB{
+	margin:0px 1rem;
+	display:none;
+	position:absolute;
+	right:0rem;
+	float:right;
+	width:2.5rem;
+	height:2.5rem;
+	background-image: url(../img/close.png);
+	background-size: 3rem 3rem;
+	background-position: center;
+/*	background-color:#165978;*/
+}
+#closeCollegesB:hover{
+	background-color:#e7e6f1;
+}

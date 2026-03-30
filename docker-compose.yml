@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  php:
+    image: ${APP_IMAGE}
+    container_name: ${APP_NAME}_backend
+    volumes:
+      - ${APP_DEPLOY_PATH}/data:/var/www/html/data
+    environment:
+      APP_ENV: ${APP_ENV}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+    networks:
+      - app_net
+      - infra
+networks:
+  app_net:
+    name: ${APP_NETWORK_NAME}
+    driver: bridge
+  infra:
+    external: true
+    name: ${INFRA_NETWORK_NAME}
