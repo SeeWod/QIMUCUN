@@ -38,7 +38,7 @@ jobs:
           APP_IMAGE=${{ vars.ACR_REGISTRY }}/${{ vars.IMAGE_PREFIX }}/${{ vars.APP_NAME }}:latest
           APP_ENV=production
           MYSQL_HOST=${{ secrets.MYSQL_HOST }}
-          MYSQL_PORT=${{ vars.MYSQL_PORT }}
+          MYSQL_PORT=${{ vars.MYSQL_PORT || vars.MYSQL_PORT}}
           MYSQL_DATABASE=${{ vars.MYSQL_DATABASE }}
           MYSQL_USERNAME=${{ secrets.MYSQL_USERNAME }}
           MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
@@ -95,5 +95,4 @@ jobs:
             else
               sudo nginx -t && sudo systemctl reload nginx
             fi
-            docker compose --env-file "${APP_DEPLOY_PATH}/.env" -f "${APP_DEPLOY_PATH}/docker-compose.yml" up -d
-            
+            docker compose --env-file "${APP_DEPLOY_PATH}/deploy/.env" -f "${APP_DEPLOY_PATH}/deploy/docker-compose.yml" up -d
