@@ -119,6 +119,12 @@ jobs:
 
       - name: Remote deploy via SSH
         uses: appleboy/ssh-action@v0.1.8
+        env:
+          APP_DEPLOY_PATH: ${{ vars.APP_DEPLOY_PATH }}
+          INFRA_DEPLOY_PATH: ${{ vars.INFRA_DEPLOY_PATH }}
+          APP_NAME: ${{ vars.APP_NAME }}
+        with:
+          envs: APP_DEPLOY_PATH,INFRA_DEPLOY_PATH,APP_NAME
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ vars.SSH_PORT }}
