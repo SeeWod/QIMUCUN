@@ -51,7 +51,7 @@ jobs:
             -e "s|__INFRA_DEPLOY_PATH__|${{ vars.INFRA_DEPLOY_PATH }}|g" \
             -e "s|__APP_NAME__|${{ vars.APP_NAME }}|g" \
             -e "s|__APP_PORT__|${{ vars.APP_PORT }}|g" \
-            deploy/nginx/app.conf.tpl > deploy/${{ vars.APP_NAME }}.conf
+            deploy/nginx/app.conf > deploy/${{ vars.APP_NAME }}.conf
 
       - name: Prepare compose bundle
         run: |
@@ -64,7 +64,7 @@ jobs:
           port: ${{ vars.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "deploy/out/*,artifacts/frontend-dist.tar.gz"
+          source: "deploy/*,artifacts/frontend-dist.tar.gz"
           target: "${{ vars.APP_DEPLOY_PATH }}"
           overwrite: true
 
