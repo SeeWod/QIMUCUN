@@ -96,3 +96,4 @@ jobs:
               sudo nginx -t && sudo systemctl reload nginx
             fi
             docker compose --env-file "${APP_DEPLOY_PATH}/.env" -f "${APP_DEPLOY_PATH}/docker-compose.yml" up -d
+            
