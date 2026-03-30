@@ -111,7 +111,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ vars.SSH_PORT }}
-          username: ${{ vars.SSH_USER }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: "deploy/out/*,artifacts/frontend-dist.tar.gz"
           target: "${{ vars.APP_DEPLOY_PATH }}"
@@ -122,7 +122,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ vars.SSH_PORT }}
-          username: ${{ vars.SSH_USER }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
             set -e
