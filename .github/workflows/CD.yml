@@ -27,8 +27,8 @@ jobs:
 
       - name: Generate .env for compose
         run: |
-          mkdir -p deploy/out
-          cat > deploy/out/.env << 'EOF'
+          mkdir -p deploy
+          cat > deploy/.env << 'EOF'
           APP_NAME=${{ vars.APP_NAME }}
           APP_NETWORK_NAME=${{ vars.APP_NETWORK_NAME }}
           INFRA_NETWORK_NAME=${{ vars.INFRA_NETWORK_NAME }}
@@ -51,11 +51,11 @@ jobs:
             -e "s|__INFRA_DEPLOY_PATH__|${{ vars.INFRA_DEPLOY_PATH }}|g" \
             -e "s|__APP_NAME__|${{ vars.APP_NAME }}|g" \
             -e "s|__APP_PORT__|${{ vars.APP_PORT }}|g" \
-            deploy/nginx/app.conf.tpl > deploy/out/${{ vars.APP_NAME }}.conf
+            deploy/nginx/app.conf.tpl > deploy/${{ vars.APP_NAME }}.conf
 
       - name: Prepare compose bundle
         run: |
-          cp docker-compose.yml deploy/out/docker-compose.yml
+          cp docker-compose.yml deploy/docker-compose.yml
 
       - name: Copy files to server (APP + Nginx)
         uses: appleboy/scp-action@v0.1.5
@@ -86,7 +86,7 @@ jobs:
             mkdir -p "${APP_DEPLOY_PATH}/data"
             mkdir -p "${INFRA_DEPLOY_PATH}/nginx/conf.d"
             mkdir -p "${INFRA_DEPLOY_PATH}/static/${APP_NAME}"
-            cp "${APP_DEPLOY_PATH}/${APP_NAME}.conf" "${INFRA_DEPLOY_PATH}/nginx/conf.d/${APP_NAME}.conf"
+            cp "${APP_DEPLOY_PATH}/deploy/${APP_NAME}.conf" "${INFRA_DEPLOY_PATH}/nginx/conf.d/${APP_NAME}.conf"
             if [ -f "${APP_DEPLOY_PATH}/frontend-dist.tar.gz" ]; then
               tar -xzf "${APP_DEPLOY_PATH}/frontend-dist.tar.gz" -C "${INFRA_DEPLOY_PATH}/static/${APP_NAME}" --strip-components=1
             fi
