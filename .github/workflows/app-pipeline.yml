@@ -86,11 +86,11 @@ jobs:
           APP_PORT=${{ vars.APP_PORT }}
           APP_IMAGE=${{ vars.ACR_REGISTRY }}/${{ vars.IMAGE_PREFIX }}/${{ vars.APP_NAME }}:latest
           APP_ENV=production
-          DB_HOST=${{ secrets.DB_HOST }}
-          DB_PORT=${{ vars.DB_PORT }}
-          DB_DATABASE=${{ vars.DB_DATABASE }}
-          DB_USERNAME=${{ secrets.DB_USERNAME }}
-          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          MYSQL_HOST=${{ secrets.MYSQL_HOST }}
+          MYSQL_PORT=${{ vars.MYSQL_PORT }}
+          MYSQL_DATABASE=${{ vars.MYSQL_DATABASE }}
+          MYSQL_USERNAME=${{ secrets.MYSQL_USERNAME }}
+          MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
           EOF
 
       - name: Render nginx conf from template

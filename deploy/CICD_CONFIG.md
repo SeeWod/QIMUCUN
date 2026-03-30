@@ -38,11 +38,11 @@ INFRA_DEPLOY_PATH=/var/www/infra            # var 基础设施部署路径（含
 后端所需的业务配置（示例）
 
 ```
-DB_HOST=                                    # secret 数据库主机（如：mysql 或 IP）
-DB_PORT=3306                                # var    数据库端口
-DB_DATABASE=appdb                           # var    数据库名
-DB_USERNAME=appuser                         # secret 数据库用户名
-DB_PASSWORD=                                # secret 数据库密码
+MYSQL_HOST=                                 # secret 数据库主机（如：mysql 或 IP）
+MYSQL_PORT=3306                             # var    数据库端口
+MYSQL_DATABASE=appdb                        # var    数据库名
+MYSQL_USERNAME=appuser                      # secret 数据库用户名
+MYSQL_PASSWORD=                             # secret 数据库密码
 APP_ENV=production                          # var    应用运行环境
 ```
 
