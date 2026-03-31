@@ -17,13 +17,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Download artifact (frontend-dist)
-        uses: actions/download-artifact@v4
+      - name: Download artifact (frontend-dist from CI)
+        uses: dawidd6/action-download-artifact@v3
         with:
+          workflow: CI
+          branch: main
+          workflow_conclusion: success
           name: frontend-dist
           path: artifacts
-        continue-on-error: true
+          github_token: ${{ github.token }}
+          search_artifacts: true
+          if_no_artifact_found: warn
 
       - name: Generate .env for compose
         run: |
