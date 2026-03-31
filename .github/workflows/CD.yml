@@ -38,7 +38,6 @@ jobs:
           INFRA_NETWORK_NAME=${{ vars.INFRA_NETWORK_NAME }}
           INFRA_DEPLOY_PATH=${{ vars.INFRA_DEPLOY_PATH }}
           APP_DEPLOY_PATH=${{ vars.APP_DEPLOY_PATH }}
-          APP_FPM_PORT=${{ vars.APP_FPM_PORT }}
           APP_IMAGE=${{ vars.ACR_REGISTRY }}/${{ vars.IMAGE_PREFIX }}/${{ vars.APP_NAME }}:latest
           APP_ENV=production
           MYSQL_HOST=${{ secrets.MYSQL_HOST }}
@@ -54,7 +53,6 @@ jobs:
             -e "s|__APP_SERVER_NAME__|${{ vars.APP_SERVER_NAME }}|g" \
             -e "s|__INFRA_DEPLOY_PATH__|${{ vars.INFRA_DEPLOY_PATH }}|g" \
             -e "s|__APP_NAME__|${{ vars.APP_NAME }}|g" \
-            -e "s|__APP_FPM_PORT__|${{ vars.APP_FPM_PORT }}|g" \
             deploy/nginx/app.conf > deploy/${{ vars.APP_NAME }}.conf
 
       - name: Prepare compose bundle
@@ -108,6 +106,9 @@ jobs:
             mkdir -p "${INFRA_DEPLOY_PATH}/static/${APP_NAME}"
             cp "${APP_DEPLOY_PATH}/deploy/${APP_NAME}.conf" "${INFRA_DEPLOY_PATH}/nginx/conf.d/${APP_NAME}.conf"
             if [ -f "${APP_DEPLOY_PATH}/frontend-dist.tar.gz" ]; then
+              if [ -d "${INFRA_DEPLOY_PATH}/static/${APP_NAME}" ]; then
+                find "${INFRA_DEPLOY_PATH}/static/${APP_NAME}" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+              fi
               tar -xzf "${APP_DEPLOY_PATH}/frontend-dist.tar.gz" -C "${INFRA_DEPLOY_PATH}/static/${APP_NAME}" --strip-components=1
             fi
             if [ -f "${INFRA_DEPLOY_PATH}/deploy/docker-compose.yml" ]; then
@@ -115,4 +116,6 @@ jobs:
             else
               sudo nginx -t && sudo systemctl reload nginx
             fi
-            docker compose --env-file "${APP_DEPLOY_PATH}/deploy/.env" -f "${APP_DEPLOY_PATH}/deploy/docker-compose.yml" up -d
+            docker compose --env-file "${APP_DEPLOY_PATH}/deploy/.env" -f "${APP_DEPLOY_PATH}/deploy/docker-compose.yml" pull
+            docker compose --env-file "${APP_DEPLOY_PATH}/deploy/.env" -f "${APP_DEPLOY_PATH}/deploy/docker-compose.yml" up -d --pull always --force-recreate --remove-orphans
+            docker image prune -f >/dev/null 2>&1 || true
