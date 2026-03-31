@@ -1,18 +1,7 @@
-FROM php:8.2-apache
+FROM php:8.2-fpm
 RUN apt-get update && apt-get install -y libicu-dev libzip-dev zlib1g-dev libpng-dev libjpeg-dev libfreetype6-dev libonig-dev pkg-config && docker-php-ext-configure gd --with-jpeg --with-freetype && docker-php-ext-install -j$(nproc) intl zip gd mbstring mysqli pdo_mysql opcache && apt-get clean && rm -rf /var/lib/apt/lists/*
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-RUN a2enmod rewrite
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/development
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf /etc/apache2/apache2.conf
-COPY development/ /var/www/html/development/
-RUN printf '%s\n' \
-    'Alias /cgi-bin/ /var/www/html/development/WEB-INF/cgi/' \
-    '<Directory "/var/www/html/development/WEB-INF/cgi">' \
-    '    Options FollowSymLinks' \
-    '    AllowOverride All' \
-    '    Require all granted' \
-    '</Directory>' \
-    > /etc/apache2/conf-available/app.conf && a2enconf app
 WORKDIR /var/www/html
-EXPOSE 80
-CMD ["apache2-foreground"]
+COPY backend/ /var/www/html/backend/
+EXPOSE 9000
+CMD ["php-fpm"]

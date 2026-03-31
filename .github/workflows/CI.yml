@@ -32,13 +32,22 @@ jobs:
             echo "frontend directory not found, skip"
           fi
 
-      - name: Archive frontend dist
-        if: ${{ hashFiles('frontend/dist/**') != '' }}
+      - name: Package static assets
+        shell: bash
         run: |
-          tar -czf frontend-dist.tar.gz -C frontend dist
+          set -e
+          if [ -d "frontend/dist" ]; then
+            tar -czf frontend-dist.tar.gz -C frontend dist
+          else
+            if [ -d "frontend" ]; then
+              tar -czf frontend-dist.tar.gz -C frontend .
+            else
+              echo "no static assets to package"
+            fi
+          fi
 
       - name: Upload artifact (frontend-dist)
-        if: ${{ hashFiles('frontend/dist/**') != '' }}
+        if: ${{ hashFiles('frontend-dist.tar.gz') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: frontend-dist

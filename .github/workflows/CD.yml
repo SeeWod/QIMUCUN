@@ -20,7 +20,7 @@ jobs:
       - name: Download artifact (frontend-dist from CI)
         uses: dawidd6/action-download-artifact@v3
         with:
-          workflow: CI
+          workflow: CI.yml
           branch: main
           workflow_conclusion: success
           name: frontend-dist
@@ -38,7 +38,7 @@ jobs:
           INFRA_NETWORK_NAME=${{ vars.INFRA_NETWORK_NAME }}
           INFRA_DEPLOY_PATH=${{ vars.INFRA_DEPLOY_PATH }}
           APP_DEPLOY_PATH=${{ vars.APP_DEPLOY_PATH }}
-          APP_PORT=${{ vars.APP_PORT }}
+          APP_FPM_PORT=${{ vars.APP_FPM_PORT }}
           APP_IMAGE=${{ vars.ACR_REGISTRY }}/${{ vars.IMAGE_PREFIX }}/${{ vars.APP_NAME }}:latest
           APP_ENV=production
           MYSQL_HOST=${{ secrets.MYSQL_HOST }}
@@ -54,21 +54,33 @@ jobs:
             -e "s|__APP_SERVER_NAME__|${{ vars.APP_SERVER_NAME }}|g" \
             -e "s|__INFRA_DEPLOY_PATH__|${{ vars.INFRA_DEPLOY_PATH }}|g" \
             -e "s|__APP_NAME__|${{ vars.APP_NAME }}|g" \
-            -e "s|__APP_PORT__|${{ vars.APP_PORT }}|g" \
+            -e "s|__APP_FPM_PORT__|${{ vars.APP_FPM_PORT }}|g" \
             deploy/nginx/app.conf > deploy/${{ vars.APP_NAME }}.conf
 
       - name: Prepare compose bundle
         run: |
           cp docker-compose.yml deploy/docker-compose.yml
 
-      - name: Copy files to server (APP + Nginx)
+      - name: Copy files to server (deploy files)
         uses: appleboy/scp-action@v0.1.5
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ vars.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "deploy/*,artifacts/frontend-dist.tar.gz"
+          source: "deploy/*"
+          target: "${{ vars.APP_DEPLOY_PATH }}"
+          overwrite: true
+
+      - name: Copy artifact to server (frontend)
+        if: ${{ hashFiles('artifacts/frontend-dist.tar.gz') != '' }}
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ vars.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "artifacts/frontend-dist.tar.gz"
           target: "${{ vars.APP_DEPLOY_PATH }}"
           overwrite: true
 
