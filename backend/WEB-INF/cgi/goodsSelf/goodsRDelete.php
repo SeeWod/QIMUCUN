@@ -59,9 +59,9 @@ if($tag == "我的收藏"){
   }
 
   if($result && $result_R && $result_M){
-    echo "记录删除成功";
+    echo "发布删除成功";
   }else{
-    echo "记录删除失败";
+    echo "发布删除失败";
   }
 }
 

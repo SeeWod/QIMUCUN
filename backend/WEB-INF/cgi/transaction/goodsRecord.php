@@ -15,18 +15,18 @@ if(mysqli_num_rows($result_isExit) <= 0){
   $sql_insertRecord = "INSERT INTO userGRecords(U_id,G_id,UGR_time)values({$U_id},{$G_id},'{$UGR_time}')";
   $result_insertRecord = insert($sql_insertRecord);
   if($result_insertRecord){
-    echo "个人收录成功";
+    echo "个人收藏成功";
   }else{
-    echo "个人收录失败";
+    echo "个人收藏失败";
   }
 }else{
 //数据存在 删除
   $sql_deleteRecord = "DELETE FROM userGRecords where U_id = {$U_id} AND G_id = {$G_id}";
   $result_deleteRecord = insert($sql_deleteRecord);
   if($result_deleteRecord){
-    echo "个人收录删除成功";
+    echo "个人收藏删除成功";
   }else{
-    echo "个人收录删除失败" . $sql_deleteRecord;
+    echo "个人收藏删除失败" . $sql_deleteRecord;
   }
 }
 

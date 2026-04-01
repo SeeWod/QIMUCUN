@@ -422,7 +422,7 @@
         </init-param>
         <init-param>
           <param-name>executable</param-name>
-          <param-value>/usr/local/MyApps/php-7.4.32/php-cgi</param-value>
+          <param-value>/usr/local/MyApps/php/php-cgi</param-value>
         </init-param>
 
         <load-on-startup>5</load-on-startup>

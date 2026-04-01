@@ -16,7 +16,7 @@ if($tag == "全部物品"){
 	  $sql_sum = "SELECT count(*) AS sum FROM goods where G_dealType = '" . $dealType."' AND G_name like '%" . $searchText."%'";
   }
 }
-else if($tag == "我的收录"){
+else if($tag == "我的收藏"){
 //增加goodsSelf扩展 我的收录
 //连接查询
   if($sortType == "G_pTime"){

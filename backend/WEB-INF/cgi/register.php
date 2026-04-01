@@ -14,7 +14,8 @@ if(mysqli_num_rows($result)>0){
   echo "ID重复请重新输入";
 }else{
   //格式判断
-  $sql = "INSERT INTO users (U_id,U_name,U_password,U_phone,U_school,U_headImg,U_rTime) values ({$R_id},'{$R_name}','{$R_password}','{$R_phone}','{$R_school}','00{$R_headImg}','{$R_time}')"; 
+  $R_hash = password_hash($R_password, PASSWORD_DEFAULT);
+  $sql = "INSERT INTO users (U_id,U_name,U_password,U_phone,U_school,U_headImg,U_rTime) values ({$R_id},'{$R_name}','{$R_hash}','{$R_phone}','{$R_school}','00{$R_headImg}','{$R_time}')"; 
   if(insert($sql)){
 	  echo "注册成功";
   }else{

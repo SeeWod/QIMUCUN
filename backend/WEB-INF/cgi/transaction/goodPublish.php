@@ -29,12 +29,12 @@ if(!$con){
  
 $sql = "INSERT INTO goods(G_name,G_dealType,G_price,G_long,G_publisher,G_pTime,G_tags,G_contact)values('{$G_name}','{$G_dealType}','{$G_price}','{$G_long}',{$G_publisher},'{$G_pTime}','{$G_tags}','{$G_contact}')";
 
-echo $sql;
+//echo $sql;
 $result_insert = mysqli_query($con,$sql);
 
 $G_id = mysqli_insert_id($con);
 if($result_insert){
-  echo "插入成功";
+  //echo "插入成功";
   //插入图片
   foreach($_FILES as $key => $value){
     if($value['error'] > 0){
@@ -45,11 +45,12 @@ if($result_insert){
       //echo "保存地址: ../../../data/goods/{$G_id}_{$value["name"]}";
      move_uploaded_file("{$value["tmp_name"]}","../../../data/goods/srcImg/{$G_id}_{$value["name"]}");
      //压缩文件存储
-     imgCompress("../../../data/goods/srcImg/{$G_id}_{$value["name"]}","../../../data/goods/croImg/",0.175);
+     imgCompress("../../../data/goods/srcImg/{$G_id}_{$value["name"]}","../../../data/goods/croImg/",0.4);
 	  }
   }
+  echo "发布成功";
 }else{
-  echo "插入失败";
+  echo "发布失败1";
 }
 
 mysqli_free_result($result_insert);

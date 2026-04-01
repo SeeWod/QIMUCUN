@@ -3,7 +3,8 @@ require_once('../dbconnect.php');
 session_start();
 date_default_timezone_set("PRC");
 $SM_sender = $_SESSION["U_id"];
-$SM_receiver = urldecode($_SESSION["U_school"]);
+//$SM_receiver = urldecode($_COOKIE["U_college"]);
+$SM_receiver = trim($_POST["SM_receiver"]);
 $SM_content = trim($_POST["SM_content"]);
 $SM_pTime = date("Y-m-d H:i:s");
 
@@ -19,3 +20,4 @@ if($result){
 }
 mysqli_free_result($result);
 ?>
+

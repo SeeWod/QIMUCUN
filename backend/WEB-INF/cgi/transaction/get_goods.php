@@ -24,7 +24,7 @@ if($tag == "全部物品"){
   }else{
 	  $sql = "SELECT G_id,G_name,G_price,G_long from goods where G_dealType = '" . $dealType . "' AND G_name like '%" . $searchText . "%' ORDER BY " . $sortType . " DESC LIMIT " .$index_goods.",".$pageSize;
   }
-}else if($tag == "我的收录"){
+}else if($tag == "我的收藏"){
 //增加goodsSelf扩展 我的收录
 //连接查询
   if($sortType == "G_pTime"){
@@ -48,7 +48,7 @@ if($tag == "全部物品"){
   if(empty($searchText)){
 	  $sql = "SELECT G_id,G_name,G_price,G_long from goods where G_dealType = '" . $dealType . "' AND G_tags LIKE '%" .$tag."%' ORDER BY " . $sortType . "   DESC LIMIT " .$index_goods.",".$pageSize;
   }else{
-	  $sql = "SELECT G_id,G_name,G_price,G_long from goods where G_dealType = '" . $dealType . "' AND G_name like '%" . $searchText . "%' AND G_tags LIKE '%" .$tag."%'ORDER BY " . $sortType . " DESC LIMIT " .$index_goods.",".$pageSize;
+	  $sql = "SELECT G_id,G_name,G_price,G_long from goods where G_dealType = '" . $dealType . "' AND G_name like '%" . $searchText . "%' AND G_tags LIKE '%" .$tag."%' ORDER BY " . $sortType . " DESC LIMIT " .$index_goods.",".$pageSize;
   }
 }
 

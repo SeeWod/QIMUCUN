@@ -1,0 +1,833 @@
+/*具有登录界面的LP部分的CSS 完结*/
+#homePageB{
+  filter:saturate(0%);
+  opacity:0.5;
+}
+#selfPageB{
+  filter:saturate(100%);
+}
+
+/*left_part*/
+
+#left_part{
+	width:calc(100% - 2rem);
+	padding:0rem 1rem;
+  height:12rem;
+  background-image: url("../img/image_phone/self_bg.png");
+  background-size:cover;
+  background-repeat:no-repeat;
+  position:relative;
+}
+#info{
+	width:100%;
+ height:60%;
+ position:absolute;
+ bottom:0px;
+	display: flex;
+	align-items: center;
+/*	background-color: #186314;*/
+}
+#info_wrap{
+  height:4rem;
+  margin:0px 1rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+}
+#info_wrap p{
+  opacity:0.5;
+}
+#U_name{
+  font-weight:bold;
+}
+#U_headImg{
+	display: block;
+	width: 4rem;
+	height: 4rem;
+
+	background-image: url("../data/user/userHeadImg/000.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: transparent;
+  background-clip: content-box;
+  border: 0.2rem solid rgb(157,157,157,0.25);
+	border-radius: 2rem;
+}
+
+@keyframes feedbackB
+{
+0% {transform:rotate(0deg);}
+2.5% {transform:rotate(10deg);}
+5% {transform:rotate(0deg);}
+7.5% {transform:rotate(-10deg);}
+10% {transform:rotate(0deg);}
+}
+#feedbackB{
+	display: flex;
+   align-items:flex-end;
+   justify-content:center;
+	width: 1.8rem;
+	height:  2.4rem;
+	position:absolute;
+	right:1rem;
+  top:1rem;
+  font-size:0.5rem;
+  color:#acacac;
+
+	background-image: url("../img/image_phone/feedbackB.png");
+	background-repeat: no-repeat;
+	background-size: 1.2rem 1.2rem;
+  background-position: center top;
+	background-color: transparent;
+  background-clip: content-box;
+  
+	border-radius: 2rem;
+  animation: feedbackB 5s infinite;
+}
+#introduceB{
+	display: flex;
+   align-items:flex-end;
+   justify-content:center;
+	width: 1.8rem;
+	height:  2.4rem;
+	position:absolute;
+	right:3.8rem;
+  top:1rem;
+  font-size:0.5rem;
+  color:#acacac;
+
+	background-image: url("../img/image_phone/introduceB.png");
+	background-repeat: no-repeat;
+	background-size: 1.2rem 1.2rem;
+  background-position: center top;
+	background-color: transparent;
+  background-clip: content-box;
+  
+	border-radius: 2rem;
+}
+/*feedbackPage 模仿clogin*/
+#feedbackPage{
+	display: none;
+	z-index: 22;
+	position:absolute;
+	width: 100%;
+	height:inherit;
+	background: #ededed;
+	border-radius: 0px;
+}
+#introducePage{
+	display: none;
+	z-index: 22;
+	position:absolute;
+	width: 100%;
+	height:inherit;
+	background: #ededed;
+	border-radius: 0px;
+}
+#feedbackPage *,#introducePage *{
+	border-radius: 0.5rem;
+}
+#feedbackPage > button,#introducePage > button{
+	margin: 1rem 1rem 0rem 1rem;
+	text-indent: 0.75rem;
+	background-color: transparent;
+	outline:none;
+
+	background-image: url("../img/image_phone/left_arrow.png");
+	background-size: 0.3rem;
+	background-position: 0px center;
+	background-repeat: no-repeat;
+}
+#feedbackPage_wrap,#introducePage_wrap{
+	display: block;
+	position:relative;
+	margin: 1rem 1rem 3rem 1rem;
+  padding:1px;
+	width: calc(100% - 2rem - 2px);
+	height: calc(100% - 6rem - 2px);
+	background-color: #ffffff; 
+}
+#feedbackPage_wrap h3,#introducePage_wrap h3{
+  display:block;
+  text-indent:2rem;
+	width:10rem;
+  font-size:1.2rem;
+  height:2rem;
+	margin: 1rem auto 1rem;
+ 
+	background-image: url("../img/image_phone/feedbackB.png");
+	background-size: 1.5rem;
+	background-position: 0px center;
+	background-repeat: no-repeat;
+}
+
+#feedbackPage_wrap textarea{
+  margin: 0rem 1rem;
+  padding:1rem 0.5rem 0.5rem;
+	display: block;
+	/*display: none;*/
+	width: calc(100% - 2rem - 1rem - 2px);
+  height: calc(100% - 2rem - 1.5rem - 5rem - 4rem - 2px);
+  
+  border:1px dashed rgb(0,0,0,0.25);
+  outline:none;
+  resize:none;
+  font-size:1rem;
+  font-family:"微软雅黑";
+  letter-spacing:0.25rem;
+  overflow-y:scroll;
+}
+#introducePage ol{
+  margin: 0rem 1rem;
+  padding:1rem 1rem 0.5rem 3rem;
+	display: block;
+	/*display: none;*/
+	width: calc(100% - 2rem - 4rem - 2px);
+  height: calc(100% - 2rem - 5rem  - 2px);
+  
+  border:1px dashed rgb(0,0,0,0.25);
+  font-size:1rem;
+  font-family:"微软雅黑";
+  letter-spacing:0.1rem;
+  overflow-y:scroll;
+  list-style-type:decimal;
+}
+#introducePage ol li{
+  margin: 0.5rem 0rem 0rem 0rem;
+}
+#feedbackPage_wrap > button{
+	display: block;
+	margin: 2rem auto 1rem;
+	/*display: none;*/
+	width: 8rem;
+  height:2.5rem;
+  line-height:2.5rem;
+  text-align:center;
+  font-size:1.2rem;
+  font-weight:bold;
+  color:#ffffff;
+  background-color:#4162ed;
+}
+
+/*main_part*/
+#main_part{
+	width:100%;
+	height: calc(100% - 12rem);
+	background:#efeeee;
+}
+
+#switch{
+	height: 2rem;
+	border-radius: 2rem;
+  margin: 1px 0px 1px 0px; 
+	display: flex;
+ align-items:center;
+	perspective: 250px;
+	perspective-origin: center 200%;
+	background: #ffffff;
+}
+#switch button{
+	color: #000000;
+	font-size: 1rem;
+  font-weight:blod;
+/*	font-weight: blod;*/
+  margin:0px 0px 0px 0.5rem;
+	width: 2.5rem;
+	height: 1.6rem;
+	border: none;
+  outline:none;
+  border-radius:1.6rem;
+  transition:0.5s;
+}
+#switch button:nth-child(1){
+	background: #eeeeee;
+}
+#switch button:nth-child(2){
+	background: transparent;
+}
+
+#down{
+	height: 100%;
+	position: relative;
+
+	background: #ffffff;
+}
+#down #tag{
+	background: #ffffff;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+	width: 100%;
+	margin: 0px;
+	height: 4rem;
+	position: relative;
+/*	background: #ffffff;*/
+	border-bottom: 1px solid #e3e3e3;
+	border-radius: 1rem 1rem 0px 0px;
+}
+#down #tag #tag_wrap{
+  margin: 0px;
+  width: 10rem;
+  height: calc(70% + 2px); 
+  position:relative;
+  overflow-x: scroll;
+	overflow-y: visible;
+  text-align:center;
+}
+#tags{
+  justify-content: center;
+}
+#tags li{
+  color:#000000;
+}
+#goods{
+	height: calc(100% - 6.5rem);
+
+}
+
+
+/*具有登录界面的LP部分的CSS*/
+#LP_main{
+	position:absolute;
+	width:100%;
+	height:inherit;
+	z-index: 22;
+	margin:0px;
+	display: none;
+	justify-content: center;
+
+	font-size: 1.2rem;
+	background-image: url("../img/image_phone/logo.png");
+	background-size: contain;
+	background-position: center 4rem;
+	background-repeat: no-repeat;
+	background-color:#f9fbfa;
+}
+#LP_main *{
+	border-radius: 0.5rem;
+}
+#LP_main p{
+	display:block;
+	position:absolute;
+	bottom:15rem;
+}
+#LP_main ul{
+	position:absolute;
+	bottom:4rem;
+
+	margin: 10rem auto 0px;
+	height: 3rem;
+	width: 80%;
+	background-image: url("../img/line.png");
+	background-size: contain;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+/*	background: #487365;*/
+	display: flex;
+}
+#LP_main li{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	width: 33%;
+}
+#LP_main li a{
+	text-decoration: none;
+}
+#LP_main li a{
+	text-decoration: none;
+}
+#LP_main li a:link{
+	color: #000000;
+}
+#LP_main li a:visited{
+	color: #000000;
+}
+#LP_main ul li:nth-child(2){
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+	color: #ffffff;
+}
+#LP_main ul li:nth-child(2) a:link{
+	color: #ffffff;
+}
+#LP_main ul li:nth-child(2) a:visited{
+	color: #ffffff;
+}
+#LP_main ul li:nth-child(2):hover{
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+
+
+#LP_login{
+	display: none;
+	z-index: 22;
+	position:absolute;
+	width: 100%;
+	height:inherit;
+	background: #ededed;
+	border-radius: 0px;
+}
+#LP_login *{
+	border-radius: 0.5rem;
+}
+#LP_login > button{
+	margin: 1rem 1rem 0rem 1rem;
+	text-indent: 0.75rem;
+	background-color: transparent;
+	outline:none;
+
+	background-image: url("../img/image_phone/left_arrow.png");
+	background-size: 0.3rem;
+	background-position: 0px center;
+	background-repeat: no-repeat;
+}
+#LP_login_wrap{
+	display: block;
+	position:relative;
+	margin: 1rem 1rem 3rem 1rem;
+	width: calc(100% - 2rem);
+	height: calc(100% - 6rem);
+	background-color: #ffffff;
+
+	background-image: url("../img/image_phone/logo.png");
+	background-size: 75%;
+	background-position: center -2rem;
+	background-repeat: no-repeat;
+ 
+}
+#LP_login_wrap form{
+	margin: 11rem auto 0rem;
+	/*display: none;*/
+	width: 75%;
+/*	background: #452935;*/
+}
+#LP_login_wrap form #d{
+	display: flex;
+	justify-content: space-between;
+}
+#LP_login_wrap > p{
+ 	position:absolute;
+	bottom: 2rem;
+  left: 33%;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 33%;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_login_wrap > p span:nth-child(2){
+	opacity:0.25;
+}
+#LP_login_wrap > p span:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_login_wrap form *{
+	font-size: 1.2rem;
+}
+#LP_login_wrap form #LPL_Cpassword{
+	margin: 0px 0px 2rem 0px;
+	width: 100%;
+	font-size: 0.75rem;
+	text-align: right;
+	opacity: 0.25;
+}
+#LP_login_wrap form #LPL_Cpassword:hover{
+	opacity: 1;
+}
+#LP_login_wrap form #LPL_return{
+	color: red;
+	width: 100%;
+	font-size: 0.75rem;
+/*	text-align: right;*/
+}
+#LP_login_wrap input{
+	text-indent: 1rem;
+	margin: 0.5rem auto;
+	height: 3rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_login_wrap input::placeholder{
+	opacity:0.5;
+}
+#LP_login_wrap input[type="button"]{
+	background: #4162ed;
+  color: #ffffff;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+
+
+#LP_cLogin{
+	display: none;
+	z-index: 22;
+	position:absolute;
+	width: 100%;
+	height:inherit;
+	background: #ededed;
+	border-radius: 0px;
+}
+#LP_cLogin *{
+	border-radius: 0.5rem;
+}
+#LP_cLogin > button{
+	margin: 1rem 1rem 0rem 1rem;
+	text-indent: 0.75rem;
+	background-color: transparent;
+	outline:none;
+
+	background-image: url("../img/image_phone/left_arrow.png");
+	background-size: 0.3rem;
+	background-position: 0px center;
+	background-repeat: no-repeat;
+}
+#LP_cLogin_wrap{
+	display: block;
+	position:relative;
+	margin: 1rem 1rem 3rem 1rem;
+	width: calc(100% - 2rem);
+	height: calc(100% - 6rem);
+	background-color: #ffffff; 
+}
+#LP_cLogin_wrap h3{
+	display: inline-block;
+	width:100%;
+	margin: 1rem auto 1rem;
+	text-align: center;
+}
+#LP_cLogin_wrap #nowLogin{
+	display: block;
+	position:relative;
+	margin: 0.5rem auto;
+	width: 75%;
+}
+#LP_cLogin_wrap #nowLogin > p{
+	font-size: 0.75rem;
+	margin:0.5rem auto;
+}
+#LP_cLogin_wrap #nowLogin > p #headImgC{
+	width: 1rem;
+  height:1rem;
+  float:right;
+  background-image:url(../img/image_phone/headImgChangeB.png);
+  background-repeat:no-repeat;
+  background-size:1rem;
+  background-position:center;
+}
+#LP_cLogin_wrap #nowLogin_wrap{
+	height: 5rem;
+	width: 100%;
+	display:flex;
+	justify-content: space-start;
+	align-items: center;
+	background-color: #f1f5fe; 
+}
+#LP_cLogin_wrap #nowLogin_headImg{
+	margin:1rem;
+	width:2.75rem;
+	height:2.75rem;
+	border: 0.25rem solid rgb(157,157,157,0.25);
+	border-radius: 5rem;
+ 
+	background-image: url("xx");
+	background-size: contain;
+	background-position: center;
+ background-clip: content-box;
+	background-repeat: no-repeat;
+}
+#LP_cLogin_wrap form{
+	display: block;
+	position:relative;
+	margin: 5rem auto 0rem;
+	/*display: none;*/
+	width: 75%;
+}
+#LP_cLogin_wrap form p{
+	font-size: 0.75rem;
+	margin:0.5rem 0px;
+}
+#LP_cLogin_wrap form #d{
+	display: flex;
+	justify-content: space-between;
+}
+#LP_cLogin_wrap > p{
+ 	position:absolute;
+	bottom: 2rem;
+  left: 33%;
+/*	background: #654356;*/
+	font-weight: bold;
+	width: 33%;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_cLogin_wrap > p span:nth-child(2){
+	opacity:0.25;
+}
+#LP_cLogin_wrap > p span:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+}
+#LP_cLogin_wrap form *{
+	font-size: 1.2rem;
+}
+#LP_cLogin_wrap form #LPL_Cpassword{
+	margin: 0px 0px 1rem 0px;
+	width: 100%;
+	font-size: 0.75rem;
+	text-align: right;
+	opacity: 0.25;
+}
+#LP_cLogin_wrap form #LPL_Cpassword:hover{
+	opacity: 1;
+}
+#LP_cLogin_wrap form #LPL_return{
+	color: red;
+	width: 100%;
+	font-size: 0.75rem;
+/*	text-align: right;*/
+}
+#LP_cLogin_wrap input{
+	text-indent: 1rem;
+	margin: 0.5rem auto;
+	height: 3rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_cLogin_wrap input::placeholder{
+	opacity:0.5;
+}
+#LP_cLogin_wrap input[type="button"]{
+	background: #4162ed;
+  color: #ffffff;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+
+
+
+
+#LP_register *{
+	border-radius: 0.5rem;
+}
+#LP_register{
+	display: none;
+	z-index: 22;
+	position:absolute;
+	width: 100%;
+	height: inherit;
+	background: #ededed;
+	border-radius: 0px;
+}
+#LP_register > button{
+	margin: 1rem 1rem 0rem 1rem;
+	text-indent: 0.75rem;
+	background-color: transparent;
+	outline:none;
+
+	background-image: url("../img/image_phone/left_arrow.png");
+	background-size: 0.3rem;
+	background-position: 0px center;
+	background-repeat: no-repeat;
+}
+#LP_register_wrap{
+	display: inline-block;
+	position:relative;
+	margin: 1rem 1rem 3rem 1rem;
+	width: calc(100% - 2rem);
+	height: calc(100% - 6rem);
+	background: #ffffff;
+}
+#LP_register_wrap form{
+	margin: 1.5rem auto 0rem;
+	/*display: none;*/
+/*	height:60%;*/
+	width:75%;
+/*	background: #452935;*/
+}
+#LP_register_wrap form div #d{
+	display: flex;
+	justify-content: space-between;
+}
+#LP_register_wrap form div{
+	display: flex;
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+/*	width: 20rem;*/
+}
+#LP_register_wrap form p{
+	height: 1rem;
+	margin: -0.5rem 0px;
+	width: 20rem;
+	text-align: right;
+	font-size: 0.75rem;
+	opacity: 0.25;
+/*	width: 20rem;*/
+}
+#LP_register_wrap form select{
+  text-indent: 1rem;
+	margin: 0.5rem auto;
+	height: 3rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_register_wrap form *{
+	font-size: 1.2rem;
+}
+#LP_register_wrap #LPL_remarks{
+  margin:1rem auto 0rem;
+	font-weight: normal;
+	opacity: 0.4;
+	width: 75%;
+	font-size: 0.75rem;
+/*	text-align: right;*/
+}
+#LP_register_wrap input{
+	text-indent: 1rem;
+/*	margin: 1rem auto;*/
+	margin: 0.5rem auto;
+	height: 3rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_register_wrap input[type="button"]{
+	margin:2rem 0px 1rem 0px;
+	color: #ffffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_register_wrap input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+#LP_register_wrap_back{
+	width: 4rem;
+	background: transparent;
+	opacity: 0.5;
+	margin: 1rem;
+	font-size: 2.5rem;
+}
+#LP_register_wrap_back:hover{
+	background: #d9d9d9;
+}
+
+
+#LP_changePassword *{
+	border-radius: 0.5rem;
+}
+#LP_changePassword{
+	display: none;
+	z-index: 22;
+	position:absolute;
+	width: 100%;
+	height:inherit;
+	background: #ededed;
+	border-radius: 0px;
+}
+#LP_changePassword > button{
+	margin: 1rem 1rem 0rem 1rem;
+	text-indent: 0.75rem;
+	background-color: transparent;
+	outline:none;
+
+	background-image: url("../img/image_phone/left_arrow.png");
+	background-size: 0.3rem;
+	background-position: 0px center;
+	background-repeat: no-repeat;
+}
+#LP_changePassword_wrap{
+	display: inline-block;
+	position:relative;
+	margin: 1rem 1rem 3rem 1rem;
+	width: calc(100% - 2rem);
+	height: calc(100% - 6rem);
+	background: #ffffff;
+}
+#LP_changePassword_wrap form{
+	margin: 7.5rem auto 0rem;
+	/*display: none;*/
+/*	height:60%;*/
+	width:75%;
+/*	background: #452935;*/
+}
+#LP_changePassword_wrap form div #d{
+	display: flex;
+	justify-content: space-between;
+}
+#LP_changePassword_wrap form div{
+	display: flex;
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+/*	width: 20rem;*/
+}
+#LP_changePassword_wrap form p{
+	height: 1rem;
+	margin: 0px;
+	width: 20rem;
+	text-align: right;
+	font-size: 1rem;
+	opacity: 0.25;
+/*	width: 20rem;*/
+}
+#LP_changePassword_wrap form select{
+  	text-indent: 1rem;
+	margin: 1rem auto;
+	height: 3rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_changePassword_wrap > p{
+	margin: 2rem auto;
+	bottom: 0px;
+/*	background: #654356;*/
+	font-size: 1rem;
+	font-weight: bold;
+	width: 20rem;
+	display: flex;
+	justify-content: space-between;
+}
+#LP_changePassword_wrap form *{
+	font-size: 1.2rem;
+}
+#LP_changePassword_wrap #LPL_remarks{
+	font-weight: normal;
+	opacity: 0.4;
+	width: 20rem;
+	font-size: 1rem;
+/*	text-align: right;*/
+}
+#LP_changePassword_wrap input{
+	text-indent: 1rem;
+/*	margin: 1rem auto;*/
+	margin: 0.5rem auto;
+	height: 3rem;
+	width: 100%;
+	border: 0px;
+	background: #f1f5fe;
+}
+#LP_changePassword_wrap input[type="button"]{
+	margin:4rem 0px 1rem 0px;
+	color: #ffffff;
+	background: #4162ed;
+	box-shadow: 2px 10px 10px rgb(65,98,237,0.5);
+}
+#LP_changePassword_wrap input[type="button"]:hover{
+	text-shadow: 2px 2px 5px rgb(0,0,0,0.5);
+	box-shadow: 2px 10px 15px rgb(65,98,237,0.5);
+}
+#LP_changePassword_wrap_back{
+	width: 4rem;
+	background: transparent;
+	opacity: 0.5;
+	margin: 1rem;
+	font-size: 2.5rem;
+}
+#LP_changePassword_wrap_back:hover{
+	background: #d9d9d9;
+}

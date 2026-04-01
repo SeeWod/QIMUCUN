@@ -11,6 +11,7 @@
 	$G_price;
 	$G_contact;
 	$G_long;
+ 
   $G_isCollect;//1 true;0 false;
 
 	$sql="SELECT G_name,G_publisher,G_price,G_pTime,G_long,G_contact from goods where G_id= {$G_id}";
