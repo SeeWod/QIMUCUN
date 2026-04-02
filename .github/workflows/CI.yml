@@ -66,4 +66,5 @@ jobs:
           context: .
           file: ./Dockerfile.php-fpm
           push: true
+          no-cache: true
           tags: ${{ vars.ACR_REGISTRY }}/${{ vars.IMAGE_PREFIX }}/${{ vars.APP_NAME }}:latest
