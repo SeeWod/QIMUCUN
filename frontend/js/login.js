@@ -7,7 +7,10 @@ function login_AUTO_manual(){
   //console.log("token "+token);
   if(PHPSESSID != ""){
   	//后台已登陆_用于切回页面
-    document.getElementById("loginPart").style.display = "none";
+    var lp = document.getElementById("loginPart");
+    if(lp){ lp.style.display = "none"; }
+    var ids=["LP_main","LP_login","LP_register","LP_changePassword","LP_cLogin"];
+    for(var i=0;i<ids.length;i++){ var e=document.getElementById(ids[i]); if(e){ e.style.display="none"; } }
     transactionCommonInitial();
   }else{
     if(U_id != "" && U_token != ""){
@@ -16,11 +19,20 @@ function login_AUTO_manual(){
       return;
     }else{
       //manual登录
-      document.getElementById("loginPart").style.display = "flex";    
+      var lp2 = document.getElementById("loginPart");
+      if(lp2){ lp2.style.display = "flex"; } 
+      else { var lpMain = document.getElementById("LP_main"); if(lpMain){ lpMain.style.display = "flex"; } }
       //显示登陆面板 ·游客登陆nobody账户
       //后台请求资源 限制 没有登录无法请求 ------暂不设置（不需要防止黑客）
     }
   }
+}
+
+function closeLoginUI(){
+  var lp = document.getElementById("loginPart");
+  if(lp){ lp.style.display = "none"; }
+  var ids=["LP_main","LP_login","LP_register","LP_changePassword","LP_cLogin"];
+  for(var i=0;i<ids.length;i++){ var e=document.getElementById(ids[i]); if(e){ e.style.display="none"; } }
 }
 
 //被调用的其他函数（登陆面板）
@@ -64,34 +76,8 @@ function login(way){
 	  if(xmlHttpRequest.readyState==4 && xmlHttpRequest.status==200){
 	    //xmlHttpRequest.responseText只=值 登陆成功、账号或密码错误
 	    if(xmlHttpRequest.responseText =="-登陆成功"){
-   	    if(window.innerWidth < 500){
-   	    	//手机端
-   	    	  switch(way){
-					    case "visiterLogin":
-					    	LP_page_phone("main");
-          			transactionCommonInitial();
-					      break;
-					      
-					    case "autoLogin":
-					    	document.getElementById("LP_login").style.display = "none";
-              	transactionCommonInitial();
-					      break;
-					      
-					    case "changeLogin":
-					    	document.getElementById("LP_cLogin").style.display = "none";
-              	transactionCommonInitial();
-					      break;
-					      
-					    default:
-					    //"commonLogin"
-					    	document.getElementById("LP_login").style.display = "none";
-              	transactionCommonInitial();
-					  }
-      	}else{
-      		//电脑端
-          document.getElementById("loginPart").style.display = "none";
+          closeLoginUI();
           transactionCommonInitial();
-      	}
 	    }
 	  }
 	}
