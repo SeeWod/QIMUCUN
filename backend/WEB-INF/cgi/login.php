@@ -22,15 +22,15 @@ if(mysqli_num_rows($result) > 0){
 		$_SESSION['U_rTime'] = $row['U_rTime'];
 	  if($freeLogin == 'true'){
 	    $expire=time()+60*60*24*30;
-	    setcookie("U_id", $U_id, $expire, "/");
-	    setcookie("U_token", $U_password, $expire, "/");
+	    setcookie("U_id", $U_id, ["expires"=>$expire, "path"=>"/"]);
+	    setcookie("U_token", $U_password, ["expires"=>$expire, "path"=>"/"]);
 	  }else{
-	    setcookie("U_id", $U_id, "会话", "/");
+	    setcookie("U_id", $U_id, ["expires"=>0, "path"=>"/"]);
 	  }
 	  //前端非主页面登录
-	 	setcookie("U_name",$_SESSION['U_name'],"会话","/");
-	 	setcookie("U_headImg",$_SESSION['U_headImg'],"会话","/");
-	 	setcookie("U_college",$_SESSION['U_school'],"会话","/");
+	 	setcookie("U_name",$_SESSION['U_name'],["expires"=>0,"path"=>"/"]);
+	 	setcookie("U_headImg",$_SESSION['U_headImg'],["expires"=>0,"path"=>"/"]);
+	 	setcookie("U_college",$_SESSION['U_school'],["expires"=>0,"path"=>"/"]);
 	//用college还是station
 	  echo "-登陆成功";
 	}else{
